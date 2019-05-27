@@ -1,20 +1,25 @@
-# Introduction 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
+# List of tags
 
-# Getting Started
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
-1.	Installation process
-2.	Software dependencies
-3.	Latest releases
-4.	API references
+Tags will be used for Financial reporting and application lifecycle
+For relation with other referential (CMDB), key value is Application name
+All Tags are set to all resources ; some tags are also set at resource group level
 
-# Build and Test
-TODO: Describe and show how to build your code and run the tests. 
+Application name        All environment     Key value between Azure and CMDB. Example : SITERN-P with format [application name]-[environment code]
+Branch                  All environment     TOTAL Business Branch
+Environment             All environment     Single character (Prod Qual Dev pReprod Integration Sandbox)
+Application Lifetime    Only for Sandbox    End date
+Maintenance Window      All environment     Default value : VM can be stopped or started at any timeOther value : maintenance windows in hour per week
+Opening Hours           All environment     Default value : VM must be up 24/24 Hours, 7/7 days
+Exploitation            All environment     Name of outsourcer (e.g. SIRUS).
 
-# Contribute
-TODO: Explain how other users and developers can contribute to make your code better. 
+# Naming resource group
 
-If you want to learn more about creating good readme files then refer the following [guidelines](https://docs.microsoft.com/en-us/azure/devops/repos/git/create-a-readme?view=azure-devops). You can also seek inspiration from the below readme files:
-- [ASP.NET Core](https://github.com/aspnet/Home)
-- [Visual Studio Code](https://github.com/Microsoft/vscode)
-- [Chakra Core](https://github.com/Microsoft/ChakraCore)
+Naming Syntax use the following rules :
+    lower characters
+    fixed size (no hyphen is used to separate significant strings)
+
+Rg_name = 
+    Cloud Prefix    2 char  : az, as
+    Type            2 char  : rg
+    Environment     1 char  : (p)rod, (q)ual, (d)ev, (p)reprod, (i)ntegration, (s)andbox
+    Name            4 char  : environment code
