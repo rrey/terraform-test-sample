@@ -12,3 +12,14 @@ Maintenance Window      All environment     Default value - VM can be stopped or
 Opening Hours           All environment     Default value - VM must be up 24.24 Hours, 7.7 days
 Exploitation            All environment     Name of outsourcer (e.g. SIRUS)
 
+# Naming resource group
+
+Naming Syntax use the following rules :
+    lower characters
+    fixed size (no hyphen is used to separate significant strings)
+
+Rg_name
+    Cloud Prefix    2 char  az, as
+    Type            2 char  rg
+    Environment     1 char  (p)rod, (q)ual, (d)ev, (p)reprod, (i)ntegration, (s)andbox
+    Name            4 char  environment code
