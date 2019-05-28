@@ -1,5 +1,5 @@
 locals {
-  rgname = concat(var.assieCloudPrefix["{local.actualProvider}"], "rg", var.assie_environmùentCode["{local.actualEnvironment}"], local.totalCmdbCode)
+  rgname = concat("az", "rg", var.assie_environmentCode["{local.actualEnvironment}"], local.totalCmdbCode)
 }
 
 locals {
@@ -10,8 +10,8 @@ locals {
 
 resource "azurerm_resource_group" "assie_rg" {
 
-  name     = "${var.client_rgName}"
-  location = "${var.client_location}"
+  name     = "${local.rgname}"
+  location = "${var.assieLocation}"
 
   tags = local.common_tags
   
@@ -19,9 +19,3 @@ resource "azurerm_resource_group" "assie_rg" {
 #    environment = "${var.tagEnvironment}"
   }
 }
-
-tags {
-        Name = "${var.role} ${var_env}"
-        role = "${var.app_role}"
-        ${var.app_role} = "${var_env}"
-    }
