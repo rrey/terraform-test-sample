@@ -12,7 +12,15 @@ locals {
 
 locals {
   l_tag = {
-    Environment = local.l_environment
+    ApplicationName      = ""
+    Branch               = ""
+    Environment          = local.l_environment
+    ApplicationLifetime  = ""
+    MaintenanceWindow    = "Default value?"
+    OpeningHours         = "Default value?"
+    Exploitation         = ""
+    SecurityLevel        = ""
+    }
   }
 
 resource "azurerm_resource_group" "assie_rg" {
