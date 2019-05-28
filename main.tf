@@ -1,5 +1,5 @@
 locals {
-  rgname = concat(aws_instance.blue.*.id, aws_instance.green.*.id)
+  rgname = concat(var.assieCloudPrefix["{local.actualProvider}"], "rg", var.assie_environmùentCode["{local.actualEnvironment}"], local.totalCmdbCode)
 }
 
 locals {
@@ -9,7 +9,6 @@ locals {
   }
 
 resource "azurerm_resource_group" "assie_rg" {
-  count    = "${data.external.test_resourcegroup.result.RgExists == "true" ? 0 : 1 }"
 
   name     = "${var.client_rgName}"
   location = "${var.client_location}"
