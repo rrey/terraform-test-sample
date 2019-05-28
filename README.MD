@@ -22,4 +22,5 @@ Rg_name
     Cloud Prefix    2 char  az, as
     Type            2 char  rg
     Environment     1 char  (p)rod, (q)ual, (d)ev, (p)reprod, (i)ntegration, (s)andbox
-    Name            4 char  environment code
+    Name            4 char  code of application
+
