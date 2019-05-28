@@ -29,7 +29,7 @@ variable assie_environmentCode {
         pre-prod      = "r"
         integration   = "i"
         sandbox       = "s"
-  }
+}
 
 variable assie_subsciption_environment {
     description = "Assie Subscription Name Environment"
