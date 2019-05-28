@@ -16,7 +16,7 @@ resource "azurerm_resource_group" "assie_rg" {
   name     = "${local.rgname}"
   location = "${var.assie_location}"
 
-  tags = local.common_tags
+  tags     = "${local.common_tags}"
   
 #  tags = {
 #    environment = "${var.tagEnvironment}"
