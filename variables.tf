@@ -10,10 +10,10 @@ variable assie_tags {
     default = {
         ApplicationName      = ""
         Branch               = ""
-        Environment          = ""
+        Environment          = "sandbox"
         ApplicationLifetime  = ""
-        MaintenanceWindow    = ""
-        OpeningHours         = ""
+        MaintenanceWindow    = "Default value?"
+        OpeningHours         = "Default value?"
         Exploitation         = ""
         SecurityLevel        = ""
     }
