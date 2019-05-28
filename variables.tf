@@ -33,5 +33,5 @@ variable assie_environmentCode {
 variable env_environment {
     description = "value pass from the environment variable TF_VAR_env_environment"
     type        = "string"
-    default     = ""
+    default     = "sandbox"
 }
