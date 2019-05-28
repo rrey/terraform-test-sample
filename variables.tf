@@ -1,18 +1,34 @@
-variable client_location {}
-variable client_rgName {}
-#variable tagEnvironment {}
+variable assie_location {
+    description = "Applicable to Azure MVP - ASSIE Project will follow the following rules - Azure Location is West Europe"
+    type        = "string"
+    default     = "westeurope"
+}
 
-variable "client_tags" {
+variable "assie_tags" {
     description = "Tags will be used for Financial reporting and application lifecycle"
     type = "map"
     default = {
-        "Application name"      = ""
-        "Branch"                = ""
-        "Environment"           = ""
-        "Application Lifetime"  = ""
-        "Maintenance Window"    = ""
-        "Opening Hours"         = ""
-        "Exploitation"          = ""
-        "Security Level"        = ""
+        ApplicationName      = ""
+        Branch               = ""
+        Environment          = ""
+        ApplicationLifetime  = ""
+        MaintenanceWindow    = ""
+        OpeningHours         = ""
+        Exploitation         = ""
+        SecurityLevel        = ""
     }
 }
+
+variable "assie_environmentCode" {
+  type = "map"
+  default = {
+    prod     = "p"
+    qual     = "q"
+    dev      = "d"
+    pre-prod = "r"
+    int      = "i"
+    sandbox  = "s"
+  }
+
+variable tagEnvironment {}
+variable client_rgName {}
