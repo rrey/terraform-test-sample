@@ -22,12 +22,12 @@ variable assie_tags {
 variable assie_environmentCode {
   type = "map"
   default = {
-    prod     = "p"
-    qual     = "q"
-    dev      = "d"
-    pre-prod = "r"
-    int      = "i"
-    sandbox  = "s"
+    production    = "p"
+    qualification = "q"
+    development   = "d"
+    pre-prod      = "r"
+    integration   = "i"
+    sandbox       = "s"
   }
 
 variable env_environment {
