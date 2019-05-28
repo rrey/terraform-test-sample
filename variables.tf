@@ -35,4 +35,3 @@ variable env_environment {
     type        = "string"
     default     = ""
 }
-variable client_rgName {}
