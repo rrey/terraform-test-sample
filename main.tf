@@ -1,4 +1,8 @@
 locals {
+  l_subscription_name = "${data.azurerm_subscription.current_subscription.subscription_name}"
+}
+
+locals {
   l_environment = lower("{var.envEnironment}")
 }
 
