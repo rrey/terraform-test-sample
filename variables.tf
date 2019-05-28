@@ -30,5 +30,9 @@ variable assie_environmentCode {
     sandbox  = "s"
   }
 
-variable tagEnvironment {}
+variable env_environment {
+    description = "value pass from the environment variable TF_VAR_env_environment"
+    type        = "string"
+    default     = ""
+}
 variable client_rgName {}
