@@ -4,7 +4,7 @@ variable assie_location {
     default     = "westeurope"
 }
 
-variable "assie_tags" {
+variable assie_tags {
     description = "Tags will be used for Financial reporting and application lifecycle"
     type = "map"
     default = {
@@ -19,7 +19,7 @@ variable "assie_tags" {
     }
 }
 
-variable "assie_environmentCode" {
+variable assie_environmentCode {
   type = "map"
   default = {
     prod     = "p"
