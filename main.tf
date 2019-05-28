@@ -18,7 +18,7 @@ locals {
 resource "azurerm_resource_group" "assie_rg" {
 
   name     = "${local.l_rgname}"
-  location = "${var.assie_location}"
+  location = "${var.module_location}"
 
   tags     = "${local.l_tags}"
   
