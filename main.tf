@@ -19,6 +19,6 @@ resource "azurerm_resource_group" "assie_rg" {
   tags     = "${local.l_tags}"
   
 #  tags = {
-#    environment = "${var.tagEnvironment}"
+#    ApplicationName = "${data.rg.tagApplication}"
   }
 }
