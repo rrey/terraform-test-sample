@@ -8,3 +8,9 @@ output "assieRgLocation" {
   value       = "${azurerm_resource_group.assie_rg.location}"
 }
 
+output "tagApplicationName" {}
+output "tagBranch" {}
+output "tagEnvironment" {}
+output "tagApplicationLifetime" {}
+output "tagExploitation" {}
+output "tagSecurityLevel" {}
