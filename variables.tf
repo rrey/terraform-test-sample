@@ -15,3 +15,9 @@ variable assie_securityLevel {
     type        = "string"
     default     = "standard"
 }
+
+variable assie_exploitation {
+    description = "Name of outsourcer - from the environment variable TF_VAR_assie_exploitation"
+    type        = "string"
+    default     = "BOOST"
+}
