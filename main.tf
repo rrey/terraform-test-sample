@@ -33,7 +33,20 @@ locals {
   l_environment      = lower("${var.assie_environment}")
 
   ### calculate environment variable
-  l_environment_code = "${var.assie_environmentCode["${local.l_environment}"]}"
+  l_environment_code = "${local.l_environment_code["${local.l_environment}"]}"
+
+
+  ### Calulate tags Application Name
+  l_application_lifetime = "360000"
+
+  ### Calculate tags Maintenance Window
+  l_maintenance_windows = "UTC-0300-0430"
+
+  ### Calculate Opening Hours
+  l_openinghours = "UTC-0800-1800"
+
+  ### Calculate Security Level
+  l_securitylevel = "${l.security_level["${var.assie_securityLevel}"]}"
 
   ### tags for resource groupe base on HLD
   l_assie_tag = {
@@ -48,6 +61,8 @@ locals {
   }
   ### Calculate Resource group name base on HLD
   l_assie_rgname  = concat("az", "rg", "${local.l_environment_code}", "${local.l_cmdb_application_code}, "01")
+
+
 }
 
 ### Generate Resource Group
