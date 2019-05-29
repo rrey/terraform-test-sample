@@ -1,4 +1,4 @@
-variable assie_location {
+variable module_location {
     description = "Applicable to Azure MVP - ASSIE Project will follow the following rules - Azure Location is West Europe"
     type        = "string"
     default     = "westeurope"
@@ -24,6 +24,12 @@ variable assie_exploitation {
 
 variable assie_applicationName {
     description = "Name of applicationr - from the environment variable TF_VAR_assie_applicationName"
+    type        = "string"
+    default     = ""
+}
+
+variable assie_branch {
+    description = "Name of branch - from the environment variable TF_VAR_assie_branch"
     type        = "string"
     default     = ""
 }
