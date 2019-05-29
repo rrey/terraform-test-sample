@@ -54,7 +54,7 @@ locals {
 
   ### Calculate tag Application Name
   ## Calculate environment Code
-  l_environment_code = "${local.l_environment_map[local.l_tag_environment]}"
+  l_environment_code = local.l_environment_map[local.l_tag_environment]
   ## variable applicationName from TF_VAR_assie_applicationName
   l_application_name = "${var.assie_applicationName}
   ## Calculate tag Application Name
@@ -76,7 +76,7 @@ locals {
   l_assie_tag = {
     ApplicationName     = local.l_tag_application_name
     Branch              = local.l_tag_branch_code
-    Environment         = local.l_environment
+    Environment         = local.l_tag_environment
     ApplicationLifetime = local.l_tag_application_lifetime
     Exploitation        = local.l_tag_exploitation
     SecurityLevel       = local.l_tag_security_level_code
