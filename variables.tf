@@ -15,4 +15,3 @@ variable assie_securityLevel {
     type        = "string"
     default     = "standard"
 }
-var.
