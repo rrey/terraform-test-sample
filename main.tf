@@ -14,7 +14,7 @@ locals {
     Exploitation         = ""
     SecurityLevel        = ""
     }
-  }
+}
 
 resource "azurerm_resource_group" "assie_rg" {
 
