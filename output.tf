@@ -9,18 +9,31 @@ output "assieRgLocation" {
 }
 
 output "tagApplicationName" {
-  description =
-  
+  description = ""
+  value       = local.l_tag_application_name
 }
-output "tagBranch" {}
-output "tagEnvironment" {}
-output "tagApplicationLifetime" {}
-output "tagExploitation" {}
-output "tagSecurityLevel" {}
 
-    ApplicationName     = local.l_tag_application_name
-    Branch              = local.l_tag_branch_code
-    Environment         = local.l_tag_environment
-    ApplicationLifetime = local.l_tag_application_lifetime
-    Exploitation        = local.l_tag_exploitation
-    SecurityLevel       = local.l_tag_security_level_code
+output "tagBranch" {
+  description = ""
+  value       = local.l_tag_branch_code
+}
+
+output "tagEnvironment" {
+  description = ""
+  value       = local.l_tag_environment
+}
+
+output "tagApplicationLifetime" {
+  description = ""
+  value       = local.l_tag_application_lifetime
+}
+
+output "tagExploitation" {
+  description = ""
+  value       = local.l_tag_exploitation
+}
+
+output "tagSecurityLevel" {
+  description = ""
+  value       = local.l_tag_security_level_code
+}
