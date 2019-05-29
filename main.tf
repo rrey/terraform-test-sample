@@ -1,3 +1,8 @@
+#### module Azurerm Resource Group
+#### 20190529 - v0.1
+
+
+### local variables for HLD tags and assie resource group name format
 locals {
   
   ### map for environment code
