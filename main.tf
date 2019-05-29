@@ -1,6 +1,8 @@
 #### module Azurerm Resource Group
 #### 20190529 - v0.1
 
+### provider for generate code
+provider random {}
 
 ### local variables for HLD tags and assie resource group name format
 locals {
@@ -44,20 +46,20 @@ locals {
   ### Calculate tag exploitation from TF_VAR_assie_exploitation
   l_exploitation = lower("{var.assie_exploitation}") 
 
-  ### variable application code from CMDB - TEST for testing
-  l_cmdb_application_code = "TEST"
+  ### variable application code from CMDB - 
+  l_cmdb_application_code = lower(substr(l_application_name,1,4)
 
   ### Calculate tag Branch code
   l_branch_code = "${local.l_branch_code[local.l_branch]}"
 
-  ### Calculate tag environment code 
+  ### Calculate tag environment code
   l_environment_code = "${local.l_environment_code[local.l_environment]}"
 
   ### Calulate tag Application Life Time (end date) - test 1 yeay
-  ## timeadd(time, duration) 
+  ## timeadd(time, duration)
   ## Returns a UTC timestamp string corresponding to adding a given duration to time in RFC 3339 format. 
   l_application_end_date = "1y"
-  l_application_lifetime = timeadd(timestamp(), local.l_application_end_date) 
+  l_application_lifetime = timeadd(timestamp(), local.l_application_end_date)
 
   ### Calculate tag Maintenance Window
   l_maintenance_windows = "UTC-0300-0430"
