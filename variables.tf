@@ -7,7 +7,7 @@ variable module_location {
 variable assie_environment {
     description = "value pass from the environment variable TF_VAR_assie_environment"
     type        = "string"
-    default     = "sandbox"
+    default     = "dev"
 }
 
 variable assie_securityLevel {
