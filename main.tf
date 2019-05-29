@@ -37,11 +37,14 @@ locals {
   ### variable applicationName from TF_VAR_assie_applicationName
   l_application_name = "${var.assie_applicationName}"
 
+  ### variable application code from CMDB
+  l_cmdb_application_code = lower(substr(l_application_name,1,4)
+
   ### variable environment from  TF_VAR_assie_environment
   l_tag_environment = lower(substr("${var.assie_environment}",1,3))
 
   ### variable security level from TF_VAR_assie_securitylevel
-  l_securitylevelvar = lower("{var.SecurityLevel}")
+  l_securitylevelvar = lower("{var.assie_securitylevel}")
 
   ### Calculate tag exploitation from TF_VAR_assie_exploitation
   l_exploitation = lower("{var.assie_exploitation}") 
@@ -52,21 +55,19 @@ locals {
   ### Calculate tag Branch code
   l_tag_branch = "${local.l_branch_map[local.l_branchvar]}"
 
-    ### variable application code from CMDB - 
-  l_cmdb_application_code = lower(substr(l_application_name,1,4)
-
   ### Calculate tag Application Name
   ## Calculate environment Code
   l_environment_code = local.l_environment_map[local.l_tag_environment]
   ## variable applicationName from TF_VAR_assie_applicationName
   l_application_name = "${var.assie_applicationName}
-  ## Calculate tag Application Name
-  l_tag_application_name = "local.l_application_name-local.l_environment_code"
+  # Calculate tag Application Name
+  l_tag_application_name = "$(local.l_application_name)-$(local.l_environment_code)"
 
   ### Calulate tag Application Life Time (end date) - test 1 yeay
   ## timeadd(time, duration)
   ## Returns a UTC timestamp string corresponding to adding a given duration to time in RFC 3339 format. 
   l_application_end_date = "1y"
+  # Calculate tag Application LifeTime
   l_tag_application_lifetime = timeadd(timestamp(), local.l_application_end_date)
 
   ### Calculate tag exploitation from TF_VAR_assie_exploitation
@@ -85,7 +86,7 @@ locals {
     SecurityLevel       = local.l_tag_security_level
   }
 
-  ### Calculate Resource group name base on HLD
+  ### Calculate Resource Group Name base on HLD
   l_cloud_code     = "az"
   l_resource_code  = "rg"
   l_resource_index = "01"
