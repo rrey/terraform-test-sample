@@ -48,8 +48,11 @@ locals {
   ### Calculate tag environment code 
   l_environment_code = "${local.l_environment_code[local.l_environment]}"
 
-  ### Calulate tag Application Name
-  l_application_lifetime = "360000"
+  ### Calulate tag Application Life Time (end date) - test 1 yeay
+  ## timeadd(time, duration) 
+  ## Returns a UTC timestamp string corresponding to adding a given duration to time in RFC 3339 format. 
+  l_application_end_date = "1y"
+  l_application_lifetime = timeadd(timestamp(), local.l_application_end_date) 
 
   ### Calculate tag Maintenance Window
   l_maintenance_windows = "UTC-0300-0430"
