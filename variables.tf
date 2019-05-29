@@ -19,18 +19,6 @@ variable module_tags {
     }
 }
 
-variable assie_environmentCode {
-    description = "Assie environment code digit"
-    type = "map"
-    default = {
-        production    = "p"
-        qualification = "q"
-        development   = "d"
-        pre-prod      = "r"
-        integration   = "i"
-        sandbox       = "s"
-}
-
 variable assie_environment {
     description = "value pass from the environment variable TF_VAR_assie_environment"
     type        = "string"
