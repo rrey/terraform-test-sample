@@ -37,7 +37,7 @@ locals {
 
   ### tags for resource groupe base on HLD
   l_assie_tag = {
-    ApplicationName      = concat("${local.l_cmdb_application_code},"-","${local.l_environment_code})
+    ApplicationName      = concat("${local.l_cmdb_application_name},"-","${local.l_environment_code})
     Branch               = ""
     Environment          = local.l_environment
     ApplicationLifetime  = ""
