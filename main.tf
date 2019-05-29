@@ -11,11 +11,11 @@ locals {
     }
 
   ### map for Total Branch
-  l_branch {
+  l_branch_code {
     ms = "MS" 
     ep = "EP"
     rc = "RC" 
-    gp = "GP" 
+    gp = "GP"
     hd = "HD" 
     ts = "TS"
   }
@@ -27,8 +27,8 @@ locals {
     conditional = "Conditional"
   }
 
-  ### variable application code to determine from CMDB - TEST for testing
-  l_cmdb_application_code = "TEST"
+  ### variable applicationName from TF_VAR_assie_applicationName
+  l_application_name = "${var.assie_applicationName}"
 
   ### variable environment from  TF_VAR_assie_environment
   l_environment = lower(substr("${var.assie_environment}",1,3))
@@ -36,8 +36,14 @@ locals {
   ### variable security level from TF_VAR_assie_securitylevel
   l_securitylevel = lower("{var.SecurityLevel}")
 
-  ### variable exploitation from TF_VAR_assie_exploitation
+  ### Calculate tag exploitation from TF_VAR_assie_exploitation
   l_exploitation = lower("{var.assie_exploitation}") 
+
+  ### variable application code from CMDB - TEST for testing
+  l_cmdb_application_code = "TEST"
+
+  ### Calculate tag Branch code
+  l_branch_code = "${local.l_branch_code[local.l_branch]}"
 
   ### Calculate tag environment code 
   l_environment_code = "${local.l_environment_code[local.l_environment]}"
@@ -51,13 +57,16 @@ locals {
   ### Calculate tag Opening Hours
   l_opening_hours = "UTC-0800-1800"
 
+  ### Calculate tag exploitation from TF_VAR_assie_exploitation
+  l_exploitation = lower("{var.assie_exploitation}") 
+
   ### Calculate tag Security Level
   l_security_level_code = l.security_level[local.l_securitylevel]
 
   ### tags for resource groupe base on HLD
   l_assie_tag = {
     ApplicationName     = concat(local.l_application_name,"-",local.l_environment_code)
-    Branch              = local.l_branch
+    Branch              = local.l_branch_code
     Environment         = local.l_environment
     ApplicationLifetime = local.l_application_lifetime
     MaintenanceWindow   = local.l_maintenance_windows
