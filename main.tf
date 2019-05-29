@@ -1,6 +1,5 @@
 locals {
-  ### CMDB code to determine - TEST for testing
-  l_cmdb_application_code    = lower(substr("TEST",1,4))
+  
 
   ### map for environment code
   local l_environment_code {
@@ -29,35 +28,41 @@ locals {
     conditional = "Conditional"
   }
 
-  ### variable environment from pipepline TF_VAR_environment external variable
+
+  ### variable application code to determine from CMDB - TEST for testing
+  l_cmdb_application_code    = lower(substr("TEST",1,4))
+
+  ### variable environment from pipepline TF_VAR_environment external environment variable
   l_environment      = lower("${var.assie_environment}")
 
-  ### calculate environment variable
-  l_environment_code = "${local.l_environment_code["${local.l_environment}"]}"
+  ### variable security level from pipeline TF_VAR_securitylevel external environment variable
+  l_securitylevel    = lower("{var.SecurityLevel}")
 
+  ### calculate tag environment code 
+  l_environment_code = "${local.l_environment_code[local.l_environment]}"
 
-  ### Calulate tags Application Name
+  ### Calulate tag Application Name
   l_application_lifetime = "360000"
 
-  ### Calculate tags Maintenance Window
+  ### Calculate tag Maintenance Window
   l_maintenance_windows = "UTC-0300-0430"
 
-  ### Calculate Opening Hours
-  l_openinghours = "UTC-0800-1800"
+  ### Calculate tag Opening Hours
+  l_opening_hours = "UTC-0800-1800"
 
-  ### Calculate Security Level
-  l_securitylevel = "${l.security_level["${var.assie_securityLevel}"]}"
+  ### Calculate tag Security Level
+  l_security_level_code = l.security_level[local.l_securitylevel]
 
   ### tags for resource groupe base on HLD
   l_assie_tag = {
-    ApplicationName      = concat("${local.l_cmdb_application_name},"-","${local.l_environment_code})
+    ApplicationName      = concat(local.l_cmdb_application_name,"-",local.l_environment_code)
     Branch               = ""
     Environment          = local.l_environment
     ApplicationLifetime  = ""
     MaintenanceWindow    = "Default value?"
     OpeningHours         = "Default value?"
     Exploitation         = ""
-    SecurityLevel        = ""
+    SecurityLevel        = local.l_security_level_code
   }
   ### Calculate Resource group name base on HLD
   l_assie_rgname  = concat("az", "rg", "${local.l_environment_code}", "${local.l_cmdb_application_code}, "01")
