@@ -9,3 +9,10 @@ variable assie_environment {
     type        = "string"
     default     = "sandbox"
 }
+
+variable assie_securityLevel {
+    description = "value pass from the environment variable TF_VAR_assie_securitylevel"
+    type        = "string"
+    default     = "high"
+}
+var.
