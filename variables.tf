@@ -31,17 +31,6 @@ variable assie_environmentCode {
         sandbox       = "s"
 }
 
-variable assie_subsciption_environment {
-    description = "Assie Subscription Name Environment"
-    type = "map"
-        prod = "production"
-        qual = "qualification"
-        dev  = "development"
-        hp   = "pre-prod"
-        int  = "integration"
-        sb   = "andbox"
-}
-
 variable assie_environment {
     description = "value pass from the environment variable TF_VAR_assie_environment"
     type        = "string"
