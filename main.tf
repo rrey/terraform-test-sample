@@ -1,5 +1,5 @@
 locals {
-  ### Cmdb code to determine - TEST for testing
+  ### CMDB code to determine - TEST for testing
   l_cmdb_application_code    = lower(substr("TEST",1,4))
 
   ### map for environment code
