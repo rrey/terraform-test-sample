@@ -58,7 +58,9 @@ locals {
   ## variable applicationName from TF_VAR_assie_applicationName
   l_application_name = "${var.assie_applicationName}
   ## Calculate tag Application Name
-  l_tag_application_name = concat(local.l_application_name,"-",local.l_environment_code)
+  l_tag_application_name = "local.l_application_name-local.l_environment_code"
+
+#  l_tag_application_name = concat(local.l_application_name,"-",local.l_environment_code)
   
   ### Calulate tag Application Life Time (end date) - test 1 yeay
   ## timeadd(time, duration)
@@ -83,8 +85,10 @@ locals {
   }
 
   ### Calculate Resource group name base on HLD
-  l_rgname  = concat("az", "rg", "${local.l_environment_code}", "${local.l_cmdb_application_code}, "01")
-
+  l_cloud_code     = "az"
+  l_resource_code  = "rg"
+  l_resource_index = "01"
+  l_rgname   = "local.l_cloud_codelocal.l_resource_codelocal.l_environment_codelocal.l_cmdb_application_codelocal.l_resource_index"
 }
 
 ### Generate Resource Group
