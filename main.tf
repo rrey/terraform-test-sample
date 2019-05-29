@@ -60,8 +60,6 @@ locals {
   ## Calculate tag Application Name
   l_tag_application_name = "local.l_application_name-local.l_environment_code"
 
-#  l_tag_application_name = concat(local.l_application_name,"-",local.l_environment_code)
-  
   ### Calulate tag Application Life Time (end date) - test 1 yeay
   ## timeadd(time, duration)
   ## Returns a UTC timestamp string corresponding to adding a given duration to time in RFC 3339 format. 
