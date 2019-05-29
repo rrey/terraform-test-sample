@@ -24,7 +24,9 @@ locals {
 
   ### map for Total SecurityLevel
   l_security_level {
-    
+    standard    = "Standard"
+    high        = "High"
+    conditional = "Conditional"
   }
 
   ### variable environment from pipepline TF_VAR_environment external variable
