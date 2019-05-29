@@ -8,7 +8,7 @@ provider random {}
 locals {
   
   ### map for environment code
-  local l_environment_code {
+  local l_environment_map {
     pro = "p"
     qua = "q"
     dev = "d"
@@ -18,7 +18,7 @@ locals {
     }
 
   ### map for Total Branch
-  l_branch_code {
+  l_branch_map {
     ms = "MS" 
     ep = "EP"
     rc = "RC" 
@@ -28,7 +28,7 @@ locals {
   }
 
   ### map for Total SecurityLevel
-  l_security_level {
+  l_security_level_map {
     standard    = "Standard"
     high        = "High"
     conditional = "Conditional"
@@ -38,7 +38,7 @@ locals {
   l_application_name = "${var.assie_applicationName}"
 
   ### variable environment from  TF_VAR_assie_environment
-  l_environment = lower(substr("${var.assie_environment}",1,3))
+  l_tag_environment = lower(substr("${var.assie_environment}",1,3))
 
   ### variable security level from TF_VAR_assie_securitylevel
   l_securitylevel = lower("{var.SecurityLevel}")
@@ -50,31 +50,36 @@ locals {
   l_cmdb_application_code = lower(substr(l_application_name,1,4)
 
   ### Calculate tag Branch code
-  l_branch_code = "${local.l_branch_code[local.l_branch]}"
+  l_tag_branch_code = "${local.l_branch_map[local.l_branch]}"
 
-  ### Calculate tag environment code
-  l_environment_code = "${local.l_environment_code[local.l_environment]}"
-
+  ### Calculate tag Application Name
+  ## Calculate environment Code
+  l_environment_code = "${local.l_environment_map[local.l_tag_environment]}"
+  ## variable applicationName from TF_VAR_assie_applicationName
+  l_application_name = "${var.assie_applicationName}
+  ## Calculate tag Application Name
+  l_tag_application_name = concat(local.l_application_name,"-",local.l_environment_code)
+  
   ### Calulate tag Application Life Time (end date) - test 1 yeay
   ## timeadd(time, duration)
   ## Returns a UTC timestamp string corresponding to adding a given duration to time in RFC 3339 format. 
   l_application_end_date = "1y"
-  l_application_lifetime = timeadd(timestamp(), local.l_application_end_date)
+  l_tag_application_lifetime = timeadd(timestamp(), local.l_application_end_date)
 
   ### Calculate tag exploitation from TF_VAR_assie_exploitation
-  l_exploitation = lower("{var.assie_exploitation}") 
+  l_tag_exploitation = lower("{var.assie_exploitation}") 
 
   ### Calculate tag Security Level
-  l_security_level_code = l.security_level[local.l_securitylevel]
+  l_tag_security_level_code = local.l_security_level_map[local.l_securitylevel]
 
   ### tags for resource groupe base on HLD
   l_assie_tag = {
-    ApplicationName     = concat(local.l_application_name,"-",local.l_environment_code)
-    Branch              = local.l_branch_code
+    ApplicationName     = local.l_tag_application_name
+    Branch              = local.l_tag_branch_code
     Environment         = local.l_environment
-    ApplicationLifetime = local.l_application_lifetime
-    Exploitation        = local.l_exploitation
-    SecurityLevel       = local.l_security_level_code
+    ApplicationLifetime = local.l_tag_application_lifetime
+    Exploitation        = local.l_tag_exploitation
+    SecurityLevel       = local.l_tag_security_level_code
   }
 
   ### Calculate Resource group name base on HLD
