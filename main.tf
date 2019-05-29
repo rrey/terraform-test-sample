@@ -1,5 +1,5 @@
 locals {
-  l_environment = lower("{var.envEnironment}")
+  l_environment = lower("{var.assie_environment}")
   l_rgname      = concat("az", "rg", var.assie_environmentCode["{local.actualEnvironment}"], local.totalCmdbCode?, "01")
 }
 
