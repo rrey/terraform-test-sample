@@ -41,16 +41,19 @@ locals {
   l_tag_environment = lower(substr("${var.assie_environment}",1,3))
 
   ### variable security level from TF_VAR_assie_securitylevel
-  l_securitylevel = lower("{var.SecurityLevel}")
+  l_securitylevelvar = lower("{var.SecurityLevel}")
 
   ### Calculate tag exploitation from TF_VAR_assie_exploitation
   l_exploitation = lower("{var.assie_exploitation}") 
 
-  ### variable application code from CMDB - 
-  l_cmdb_application_code = lower(substr(l_application_name,1,4)
+  ### Calculate tag exploitation from TF_VAR_assie_branch
+  l_branchvar = lower("{var.assie_branch}")
 
   ### Calculate tag Branch code
-  l_tag_branch_code = "${local.l_branch_map[local.l_branch]}"
+  l_tag_branch = "${local.l_branch_map[local.l_branchvar]}"
+
+    ### variable application code from CMDB - 
+  l_cmdb_application_code = lower(substr(l_application_name,1,4)
 
   ### Calculate tag Application Name
   ## Calculate environment Code
@@ -70,23 +73,23 @@ locals {
   l_tag_exploitation = lower("{var.assie_exploitation}") 
 
   ### Calculate tag Security Level
-  l_tag_security_level_code = local.l_security_level_map[local.l_securitylevel]
+  l_tag_security_level = local.l_security_level_map[local.l_securitylevelvar]
 
   ### tags for resource groupe base on HLD
   l_assie_tag = {
     ApplicationName     = local.l_tag_application_name
-    Branch              = local.l_tag_branch_code
+    Branch              = local.l_tag_branch
     Environment         = local.l_tag_environment
     ApplicationLifetime = local.l_tag_application_lifetime
     Exploitation        = local.l_tag_exploitation
-    SecurityLevel       = local.l_tag_security_level_code
+    SecurityLevel       = local.l_tag_security_level
   }
 
   ### Calculate Resource group name base on HLD
   l_cloud_code     = "az"
   l_resource_code  = "rg"
   l_resource_index = "01"
-  l_rgname   = "local.l_cloud_codelocal.l_resource_codelocal.l_environment_codelocal.l_cmdb_application_codelocal.l_resource_index"
+  l_rgname   = "$(local.l_cloud_code)$(local.l_resource_code)$(local.l_environment_code)$(local.l_cmdb_application_code)$(local.l_resource_index)"
 }
 
 ### Generate Resource Group
