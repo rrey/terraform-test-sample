@@ -61,12 +61,6 @@ locals {
   l_application_end_date = "1y"
   l_application_lifetime = timeadd(timestamp(), local.l_application_end_date)
 
-  ### Calculate tag Maintenance Window
-  l_maintenance_windows = "UTC-0300-0430"
-
-  ### Calculate tag Opening Hours
-  l_opening_hours = "UTC-0800-1800"
-
   ### Calculate tag exploitation from TF_VAR_assie_exploitation
   l_exploitation = lower("{var.assie_exploitation}") 
 
@@ -79,8 +73,6 @@ locals {
     Branch              = local.l_branch_code
     Environment         = local.l_environment
     ApplicationLifetime = local.l_application_lifetime
-    MaintenanceWindow   = local.l_maintenance_windows
-    OpeningHours        = local.l_opening_hours
     Exploitation        = local.l_exploitation
     SecurityLevel       = local.l_security_level_code
   }
