@@ -21,3 +21,9 @@ variable assie_exploitation {
     type        = "string"
     default     = "BOOST"
 }
+
+variable assie_applicationName {
+    description = "Name of applicationr - from the environment variable TF_VAR_assie_applicationName"
+    type        = "string"
+    default     = ""
+}
