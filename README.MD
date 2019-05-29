@@ -11,7 +11,7 @@ Application Lifetime    Only for Sandbox    End date (format)
 Maintenance Window      All environment     Default value - VM can be stopped or started at any time - Other value for maintenance windows in hour per week
 Opening Hours           All environment     Default value - VM must be up 24.24 Hours, 7.7 days
 Exploitation            All environment     Name of outsourcer (e.g. SIRUS)
-
+Security Level : Standard, High and Conditional
 # Naming resource group
 
 Naming Syntax use the following rules :
