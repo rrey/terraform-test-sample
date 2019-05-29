@@ -1,6 +1,7 @@
 locals {
-  l_environment = lower("{var.assie_environment}")
-  l_rgname      = concat("az", "rg", var.assie_environmentCode["{local.actualEnvironment}"], local.totalCmdbCode?, "01")
+  l_environment   = lower("${var.assie_environment}")
+  l_totalCmdbCode = lower(substr("TEST",1,4))
+  l_assie_rgname        = concat("az", "rg", var.assie_environmentCode["${local.actualEnvironment}"], local.l_totalCmdbCode, "01")
 }
 
 locals {
@@ -18,7 +19,7 @@ locals {
 
 resource "azurerm_resource_group" "assie_rg" {
 
-  name     = "${local.l_rgname}"
+  name     = "${local.l_assie_rgname}"
   location = "${var.module_location}"
 
   tags     = "${local.l_tags}"
