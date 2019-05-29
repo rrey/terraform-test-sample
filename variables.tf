@@ -1,4 +1,4 @@
-variable module_location {
+variable assie_location {
     description = "Applicable to Azure MVP - ASSIE Project will follow the following rules - Azure Location is West Europe"
     type        = "string"
     default     = "westeurope"
