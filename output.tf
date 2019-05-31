@@ -15,7 +15,7 @@ output "tagApplicationName" {
 
 output "tagBranch" {
   description = "Total Branch"
-  value       = local.l_tag_branch_code
+  value       = local.l_tag_branch
 }
 
 output "tagEnvironment" {
@@ -35,5 +35,5 @@ output "tagExploitation" {
 
 output "tagSecurityLevel" {
   description = "Security Level"
-  value       = local.l_tag_security_level_code
+  value       = local.l_tag_security_level
 }
