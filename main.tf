@@ -96,7 +96,7 @@ locals {
 
 locals {
   ### Calculate tag exploitation from TF_VAR_assie_exploitation
-  l_tag_exploitation = lower("${var.assie_exploitation}") 
+  l_tag_exploitation = upper("${var.assie_exploitation}") 
 }
 
 locals {
