@@ -39,6 +39,11 @@ locals {
 }
 
 locals {
+  ### variable applicationName from TF_VAR_assie_applicationName
+  l_application_name = trimspace(lower("${var.assie_applicationName}"))
+}
+
+locals {
   ### variable application code from CMDB
   l_cmdb_application_code = lower(substr(l_application_name,1,4))
 }
@@ -72,10 +77,6 @@ locals {
   ### Calculate tag Application Name
   ## Calculate environment Code
   l_environment_code = local.l_environment_map[local.l_tag_environment]
-}
-locals {
-  ## variable applicationName from TF_VAR_assie_applicationName
-  l_application_name = trimspace(lower("${var.assie_applicationName}"))
 }
 locals {
   # Calculate tag Application Name
