@@ -45,7 +45,7 @@ locals {
 
 locals {
   ### variable application code from CMDB
-  l_cmdb_application_code = lower(substr(l_application_name,1,4)
+  l_cmdb_application_code = lower(substr(l_application_name,1,4))
 }
 
 locals {
@@ -80,7 +80,7 @@ locals {
 }
 locals {
   ## variable applicationName from TF_VAR_assie_applicationName
-  l_application_name = "${var.assie_applicationName}
+  l_application_name = "${var.assie_applicationName}"
 }
 locals {
   # Calculate tag Application Name
