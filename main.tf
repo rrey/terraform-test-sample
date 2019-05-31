@@ -8,7 +8,7 @@ provider random {}
 locals {
   
   ### map for environment code
-  local l_environment_map {
+  l_environment_map {
     pro = "p"
     qua = "q"
     dev = "d"
