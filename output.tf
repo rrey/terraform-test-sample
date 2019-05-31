@@ -9,31 +9,31 @@ output "assieRgLocation" {
 }
 
 output "tagApplicationName" {
-  description = ""
+  description = "Application name as Assie naming convention"
   value       = local.l_tag_application_name
 }
 
 output "tagBranch" {
-  description = ""
+  description = "Total Branch"
   value       = local.l_tag_branch_code
 }
 
 output "tagEnvironment" {
-  description = ""
+  description = "Enviroment"
   value       = local.l_tag_environment
 }
 
 output "tagApplicationLifetime" {
-  description = ""
+  description = "For sandbox"
   value       = local.l_tag_application_lifetime
 }
 
 output "tagExploitation" {
-  description = ""
+  description = "Exploitation"
   value       = local.l_tag_exploitation
 }
 
 output "tagSecurityLevel" {
-  description = ""
+  description = "Security Level"
   value       = local.l_tag_security_level_code
 }
