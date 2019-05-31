@@ -35,7 +35,7 @@ locals {
   }
 
   ### variable applicationName from TF_VAR_assie_applicationName
-  l_application_name = trimspace("${var.assie_applicationName}")
+  l_application_name = trimspace(lower("${var.assie_applicationName}"))
 
   ### variable application code from CMDB
   l_cmdb_application_code = lower(substr(l_application_name,1,4)
