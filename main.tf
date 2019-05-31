@@ -35,7 +35,7 @@ locals {
   }
 
   ### variable applicationName from TF_VAR_assie_applicationName
-  l_application_name = "${var.assie_applicationName}"
+  l_application_name = trimspace("${var.assie_applicationName}")
 
   ### variable application code from CMDB
   l_cmdb_application_code = lower(substr(l_application_name,1,4)
@@ -63,9 +63,9 @@ locals {
   # Calculate tag Application Name
   l_tag_application_name = "$(local.l_application_name)-$(local.l_environment_code)"
 
-  ### Calulate tag Application Life Time (end date) - test 1 yeay
+  ### Calulate tag Application Life Time (end date) - test 1 year
   ## timeadd(time, duration)
-  ## Returns a UTC timestamp string corresponding to adding a given duration to time in RFC 3339 format. 
+  ## Returns a UTC timestamp string corresponding to adding a given duration to time in RFC 3339 format.
   l_application_end_date = "1y"
   # Calculate tag Application LifeTime
   l_tag_application_lifetime = timeadd(timestamp(), local.l_application_end_date)
