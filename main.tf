@@ -55,7 +55,7 @@ locals {
 
 locals {
   ### variable security level from TF_VAR_assie_securitylevel
-  l_securitylevelvar = lower("{var.assie_securitylevel}")
+  l_securitylevelvar = lower("{var.assie_securityLevel}")
 }
 
 locals {
