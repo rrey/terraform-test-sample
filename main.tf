@@ -116,8 +116,8 @@ locals {
   }
 }
 
+### Calculate Resource Group Name base on HLD
 locals {
-  ### Calculate Resource Group Name base on HLD
   l_cloud_code     = "az"
 }
 locals {
