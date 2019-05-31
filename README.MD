@@ -27,3 +27,41 @@ Rg_name
     Environment     1 char  (p)rod, (q)ual, (d)ev, (p)reprod, (i)ntegration, (s)andbox
     Name            4 char  code of application
     Index           2 char  number
+
+# Input variables
+
+module_location {
+    description = "Applicable to Azure MVP - ASSIE Project will follow the following rules - Azure Location is West Europe"
+    type        = "string"
+    default     = "westeurope"
+}
+
+assie_environment {
+    description = "value pass from the environment variable TF_VAR_assie_environment"
+    type        = "string"
+    default     = "dev"
+}
+
+assie_securityLevel {
+    description = "value pass from the environment variable TF_VAR_assie_securitylevel"
+    type        = "string"
+    default     = "standard"
+}
+
+assie_exploitation {
+    description = "Name of outsourcer - from the environment variable TF_VAR_assie_exploitation"
+    type        = "string"
+    default     = "BOOST"
+}
+
+assie_applicationName {
+    description = "Name of applicationr - from the environment variable TF_VAR_assie_applicationName"
+    type        = "string"
+    default     = ""
+}
+
+assie_branch {
+    description = "Name of branch - from the environment variable TF_VAR_assie_branch"
+    type        = "string"
+    default     = ""
+}
