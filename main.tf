@@ -7,7 +7,7 @@ provider random {}
 ### local variables for HLD tags and assie resource group name format
 locals {
   ### map for environment code
-  l_environment_map {
+  l_environment_map = {
     pro = "p"
     qua = "q"
     dev = "d"
@@ -19,7 +19,7 @@ locals {
 
 locals {
   ### map for Total Branch
-  l_branch_map {
+  l_branch_map = {
     ms = "MS" 
     ep = "EP"
     rc = "RC" 
@@ -31,7 +31,7 @@ locals {
 
 locals {
   ### map for Total SecurityLevel
-  l_security_level_map {
+  l_security_level_map = {
     standard    = "Standard"
     high        = "High"
     conditional = "Conditional"
