@@ -55,22 +55,22 @@ locals {
 
 locals {
   ### variable security level from TF_VAR_assie_securityLevel
-  l_securitylevelvar = lower("{var.assie_securityLevel}")
+  l_securitylevelvar = lower("${var.assie_securityLevel}")
 }
 
 locals {
   ### Calculate tag exploitation from TF_VAR_assie_exploitation
-  l_exploitation = lower("{var.assie_exploitation}") 
+  l_exploitation = lower("${var.assie_exploitation}") 
 }
 
 locals {
   ### Calculate tag exploitation from TF_VAR_assie_branch
-  l_branchvar = lower(substr("{var.assie_branch}",1,2))
+  l_branchvar = lower(substr("${var.assie_branch}",1,2))
 }
 
 locals {
   ### Calculate tag Branch code
-  l_tag_branch = "${local.l_branch_map[local.l_branchvar]}"
+  l_tag_branch = local.l_branch_map[local.l_branchvar]
 }
 
 locals {
@@ -96,7 +96,7 @@ locals {
 
 locals {
   ### Calculate tag exploitation from TF_VAR_assie_exploitation
-  l_tag_exploitation = lower("{var.assie_exploitation}") 
+  l_tag_exploitation = lower("${var.assie_exploitation}") 
 }
 
 locals {
