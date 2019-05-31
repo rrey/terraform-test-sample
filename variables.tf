@@ -25,11 +25,11 @@ variable assie_exploitation {
 variable assie_applicationName {
     description = "Name of applicationr - from the environment variable TF_VAR_assie_applicationName"
     type        = "string"
-    default     = ""
+    default     = "testing"
 }
 
 variable assie_branch {
     description = "Name of branch - from the environment variable TF_VAR_assie_branch"
     type        = "string"
-    default     = ""
+    default     = "ms"
 }
