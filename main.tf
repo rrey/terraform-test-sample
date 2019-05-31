@@ -45,12 +45,12 @@ locals {
 
 locals {
   ### variable application code from CMDB
-  l_cmdb_application_code = lower(substr(local.l_application_name,1,4))
+  l_cmdb_application_code = lower(substr(local.l_application_name,0,4))
 }
 
 locals {
   ### variable environment from  TF_VAR_assie_environment
-  l_tag_environment = lower(substr("${var.assie_environment}",1,3))
+  l_tag_environment = lower(substr("${var.assie_environment}",0,3))
 }
 
 locals {
@@ -65,7 +65,7 @@ locals {
 
 locals {
   ### Calculate tag exploitation from TF_VAR_assie_branch
-  l_branchvar = lower(substr("${var.assie_branch}",1,2))
+  l_branchvar = lower(substr("${var.assie_branch}",0,2))
 }
 
 locals {
