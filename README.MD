@@ -26,5 +26,4 @@ Rg_name
     Type            2 char  rg
     Environment     1 char  (p)rod, (q)ual, (d)ev, (p)reprod, (i)ntegration, (s)andbox
     Name            4 char  code of application
-
-Security Level : Standard, High and Conditional
+    Index           2 char  number
