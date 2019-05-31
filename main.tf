@@ -127,7 +127,7 @@ locals {
   l_resource_index = "01"
 }
 locals {
-  l_rgname = $(local.l_cloud_code)$(local.l_resource_code)$(local.l_environment_code)$(local.l_cmdb_application_code)$(local.l_resource_index)
+  l_rgname = "$(local.l_cloud_code)$(local.l_resource_code)$(local.l_environment_code)$(local.l_cmdb_application_code)$(local.l_resource_index)"
 }
 
 ### Generate Resource Group
