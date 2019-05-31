@@ -40,7 +40,7 @@ locals {
 
 locals {
   ### variable applicationName from TF_VAR_assie_applicationName
-  l_application_name = trimspace(lower("${var.assie_applicationName}"))
+  l_application_name = trimspace(lower(compact("${var.assie_applicationName}")))
 }
 
 locals {
@@ -127,7 +127,7 @@ locals {
   l_resource_index = "01"
 }
 locals {
-  l_rgname = "$(local.l_cloud_code)$(local.l_resource_code)$(local.l_environment_code)$(local.l_cmdb_application_code)$(local.l_resource_index)"
+  l_rgname = $(local.l_cloud_code)$(local.l_resource_code)$(local.l_environment_code)$(local.l_cmdb_application_code)$(local.l_resource_index)
 }
 
 ### Generate Resource Group
