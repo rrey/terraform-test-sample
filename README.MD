@@ -8,20 +8,18 @@ Application name*        All environment     Key value between Azure and CMDB. E
 Branch*                  All environment     TOTAL Business Branch (MS EP RC GP HD TS)
 Environment*             All environment     Single character (Prod Qual Dev pReprod Integration Sandbox)
 Application Lifetime*    Only for Sandbox    End date (format)
-Maintenance Window       All environment     Default value - VM can be stopped or started at any time - Other value for maintenance windows in hour per week
-Opening Hours            All environment     Default value - VM must be up 24.24 Hours, 7.7 days
 Exploitation*            All environment     Name of outsourcer ("BOOST")
 Security Level*          All environment     Standard, High, Conditional
 
 * only for Resource Group
 
-# Naming resource group
+# Naming of Resource Group
 
 Naming Syntax use the following rules :
     lower characters
     fixed size (no hyphen is used to separate significant strings)
 
-Rg_name
+Resource Group Name = 
     Cloud Prefix    2 char  az, as, gc
     Type            2 char  rg
     Environment     1 char  (p)rod, (q)ual, (d)ev, (p)reprod, (i)ntegration, (s)andbox
@@ -65,3 +63,32 @@ assie_branch {
     type        = "string"
     default     = ""
 }
+
+# Output variables
+assieRgName.value
+  description = "The resource group name"
+
+assieRgLocation.value
+  description = "The resource group location"
+
+tagApplicationName.value
+  description = "Application name as Assie naming convention"
+
+tagBranch.value
+  description = "TOTAL Business Branch - MS, EP, RC, GP, HD or TS"
+
+tagEnvironment.value
+  description = "Enviroment"
+
+tagApplicationLifetime.value
+  description = "For sandbox"
+
+tagExploitation.value
+  description = "Name of outsourcer"
+
+tagSecurityLevel.value
+  description = "Security Level - Standard, High or Conditional"
+
+  # out
+Maintenance Window       All environment     Default value - VM can be stopped or started at any time - Other value for maintenance windows in hour per week
+Opening Hours            All environment     Default value - VM must be up 24.24 Hours, 7.7 days
