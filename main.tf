@@ -80,7 +80,7 @@ locals {
 }
 locals {
   # Calculate tag Application Name
-  l_tag_application_name = "$(local.l_application_name)-$(local.l_environment_code)"
+  l_tag_application_name = "${local.l_application_name}-${local.l_environment_code}"
 }
 
 locals {
