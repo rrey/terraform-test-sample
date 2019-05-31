@@ -40,7 +40,7 @@ locals {
 
 locals {
   ### variable applicationName from TF_VAR_assie_applicationName
-  l_application_name = trimspace(lower(compact("${var.assie_applicationName}")))
+  l_application_name = trimspace(lower("${var.assie_applicationName}"))
 }
 
 locals {
