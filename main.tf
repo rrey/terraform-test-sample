@@ -45,7 +45,7 @@ locals {
 
 locals {
   ### variable application code from CMDB
-  l_cmdb_application_code = lower(substr(l_application_name,1,4))
+  l_cmdb_application_code = lower(substr(local.l_application_name,1,4))
 }
 
 locals {
