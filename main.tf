@@ -65,7 +65,7 @@ locals {
 
 locals {
   ### Calculate tag exploitation from TF_VAR_assie_branch
-  l_branchvar = lower("{var.assie_branch}")
+  l_branchvar = lower(substr("{var.assie_branch}",1,2))
 }
 
 locals {
@@ -134,5 +134,5 @@ locals {
 resource "azurerm_resource_group" "assie_rg" {
   location = "${var.module_location}"
   name     = local.l_rgname
-  tags     = local.l_assie_tags
+  tags     = local.l_assie_tag
 }
