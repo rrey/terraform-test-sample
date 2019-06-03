@@ -26,7 +26,7 @@ Resource Group Name =
     Name            4 char  code of application
     Index           2 char  number
 
-# Input variables
+# Input variables (* = needed)
 
 module_location {
     description = "Applicable to Azure MVP - ASSIE Project will follow the following rules - Azure Location is West Europe"
@@ -34,10 +34,16 @@ module_location {
     default     = "westeurope"
 }
 
-assie_environment {
+assie_applicationName* {
+    description = "Name of applicationr - from the environment variable TF_VAR_assie_applicationName"
+    type        = "string"
+    default     = ""
+}
+
+assie_environment* {
     description = "value pass from the environment variable TF_VAR_assie_environment"
     type        = "string"
-    default     = "dev"
+    default     = ""
 }
 
 assie_securityLevel {
@@ -50,12 +56,6 @@ assie_exploitation {
     description = "Name of outsourcer - from the environment variable TF_VAR_assie_exploitation"
     type        = "string"
     default     = "BOOST"
-}
-
-assie_applicationName {
-    description = "Name of applicationr - from the environment variable TF_VAR_assie_applicationName"
-    type        = "string"
-    default     = ""
 }
 
 assie_branch {
