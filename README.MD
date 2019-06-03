@@ -46,6 +46,12 @@ assie_environment* {
     default     = ""
 }
 
+assie_branch* {
+    description = "Name of branch - from the environment variable TF_VAR_assie_branch"
+    type        = "string"
+    default     = ""
+}
+
 assie_securityLevel {
     description = "value pass from the environment variable TF_VAR_assie_securitylevel"
     type        = "string"
@@ -58,11 +64,6 @@ assie_exploitation {
     default     = "BOOST"
 }
 
-assie_branch {
-    description = "Name of branch - from the environment variable TF_VAR_assie_branch"
-    type        = "string"
-    default     = ""
-}
 
 # Calling the az_resource_group module
 
