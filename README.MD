@@ -64,38 +64,40 @@ assie_branch {
     default     = ""
 }
 
-# Appel module
+# Calling the az_resource_group module
 
 module "assie_rg" {
-  source = "git/az_resource_group"
-  name   = "${var.rgName}
+  source                = "git/az_resource_group"
+  module_location       = your "${var.}"
+# assie_environment     = from TF_VAR_assie_environment or your "${var.}
+# assie_securityLevel   = from TF_VAR_assie_securitylevel or your "${var.}
+# assie_exploitation    = from TF_VAR_assie_exploitation or your "${var.}
+# assie_applicationName = from TF_VAR_assie_applicationName or your "${var.}
+# assie_branch          = from TF_VAR_assie_branch or your "${var.}
 }
 
-# Output variables
-"${module.assie_rg.assieRgName.value}"
+# using the Output variables
+= "${module.assie_rg.assieRgName.value}"
   description = "The resource group name"
 
-assieRgLocation.value
-  description = "The resource group location"
-
-= "${module.assie_rg.tagApplicationName.value}
+= "${module.assie_rg.tagApplicationName.value}"
   description = "Application name as Assie naming convention"
 
-tagBranch.value
+= "${module.assie_rg.tagBranch.value}"
   description = "TOTAL Business Branch - MS, EP, RC, GP, HD or TS"
 
-tagEnvironment.value
+= "{module.assie_rg.tagEnvironment.value}"
   description = "Enviroment"
 
-tagApplicationLifetime.value
+= "{module.assie_rg.tagApplicationLifetime.value}"
   description = "For sandbox"
 
-tagExploitation.value
+= "{module.assie_rg.tagExploitation.value}"
   description = "Name of outsourcer"
 
-tagSecurityLevel.value
+= "{module.assie_rg.tagSecurityLevel.value}"
   description = "Security Level - Standard, High or Conditional"
 
-  # out
+# out of this module
 Maintenance Window       All environment     Default value - VM can be stopped or started at any time - Other value for maintenance windows in hour per week
 Opening Hours            All environment     Default value - VM must be up 24.24 Hours, 7.7 days
