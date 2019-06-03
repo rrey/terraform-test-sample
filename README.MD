@@ -64,8 +64,15 @@ assie_branch {
     default     = ""
 }
 
+# Appel module
+
+module "assie_rg" {
+  source = "git"
+  
+}
+
 # Output variables
-assieRgName.value
+"${module.assie_rg.assieRgName.value}"
   description = "The resource group name"
 
 assieRgLocation.value
