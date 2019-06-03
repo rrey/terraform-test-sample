@@ -6,7 +6,7 @@ All Tags are set to all resources ; some tags are also set at resource group lev
 
 Application name*        All environment     Key value between Azure and CMDB. Example SITERN-P with format (application name)-(environment code)
 Branch*                  All environment     TOTAL Business Branch (MS EP RC GP HD TS)
-Environment*             All environment     Single character (Prod Qual Dev pReprod Integration Sandbox)
+Environment*             All environment     Single character (Pro)duction (Qua)lification (Dev)elopment (pRe)-prod (Int)egration (San)dbox
 Application Lifetime*    Only for Sandbox    End date (format)
 Exploitation*            All environment     Name of outsourcer ("BOOST")
 Security Level*          All environment     Standard, High, Conditional
