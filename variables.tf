@@ -4,10 +4,22 @@ variable module_location {
     default     = "westeurope"
 }
 
+variable assie_applicationName {
+    description = "Name of applicationr - from the environment variable TF_VAR_assie_applicationName"
+    type        = "string"
+    default     = ""
+}
+
+variable assie_branch {
+    description = "Name of branch - from the environment variable TF_VAR_assie_branch"
+    type        = "string"
+    default     = ""
+}
+
 variable assie_environment {
     description = "value pass from the environment variable TF_VAR_assie_environment"
     type        = "string"
-    default     = "dev"
+    default     = ""
 }
 
 variable assie_securityLevel {
@@ -22,14 +34,3 @@ variable assie_exploitation {
     default     = "BOOST"
 }
 
-variable assie_applicationName {
-    description = "Name of applicationr - from the environment variable TF_VAR_assie_applicationName"
-    type        = "string"
-    default     = "testing"
-}
-
-variable assie_branch {
-    description = "Name of branch - from the environment variable TF_VAR_assie_branch"
-    type        = "string"
-    default     = "ms"
-}
