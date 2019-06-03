@@ -67,8 +67,8 @@ assie_branch {
 # Appel module
 
 module "assie_rg" {
-  source = "git"
-  
+  source = "git/az_resource_group"
+  name   = "${var.rgName}
 }
 
 # Output variables
@@ -78,7 +78,7 @@ module "assie_rg" {
 assieRgLocation.value
   description = "The resource group location"
 
-tagApplicationName.value
+= "${module.assie_rg.tagApplicationName.value}
   description = "Application name as Assie naming convention"
 
 tagBranch.value
