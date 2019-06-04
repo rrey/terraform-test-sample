@@ -66,7 +66,6 @@ assie_exploitation {
 
 
 # Calling the az_resource_group module
-
 module "assie_rg" {
   source                = "git/az_resource_group"
   assie_environment     = from TF_VAR_assie_environment or your "${var.}
