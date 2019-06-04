@@ -14,7 +14,6 @@ Security Level*          All environment     Standard, High, Conditional
 * only for Resource Group
 
 # Naming of Resource Group
-
 Naming Syntax use the following rules :
     lower characters
     fixed size (no hyphen is used to separate significant strings)
