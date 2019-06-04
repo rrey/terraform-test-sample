@@ -82,16 +82,16 @@ module "assie_rg" {
 = "${module.assie_rg.tagBranch.value}"
   description = "TOTAL Business Branch - MS, EP, RC, GP, HD or TS"
 
-= "{module.assie_rg.tagEnvironment.value}"
+= "${module.assie_rg.tagEnvironment.value}"
   description = "Enviroment"
 
-= "{module.assie_rg.tagApplicationLifetime.value}"
+= "${module.assie_rg.tagApplicationLifetime.value}"
   description = "For sandbox"
 
-= "{module.assie_rg.tagExploitation.value}"
+= "${module.assie_rg.tagExploitation.value}"
   description = "Name of outsourcer"
 
-= "{module.assie_rg.tagSecurityLevel.value}"
+= "${module.assie_rg.tagSecurityLevel.value}"
   description = "Security Level - Standard, High or Conditional"
 
 # out of this module
