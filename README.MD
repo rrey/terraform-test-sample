@@ -72,9 +72,9 @@ module "assie_rg" {
   assie_environment     = from TF_VAR_assie_environment or your "${var.}
   assie_branch          = from TF_VAR_assie_branch or your "${var.}
   assie_applicationName = from TF_VAR_assie_applicationName or your "${var.}
-  # module_location       = your "${var.}" or default
-  # assie_exploitation    = from TF_VAR_assie_exploitation or your "${var.} or default
-  # assie_securityLevel   = from TF_VAR_assie_securitylevel or your "${var.} or default
+  # module_location     = your "${var.}" or default
+  # assie_exploitation  = from TF_VAR_assie_exploitation or your "${var.} or default
+  # assie_securityLevel = from TF_VAR_assie_securitylevel or your "${var.} or default
 }
 
 # using the Output variables
