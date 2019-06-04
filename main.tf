@@ -104,6 +104,15 @@ locals {
   l_tag_security_level = local.l_security_level_map[local.l_securitylevelvar]
 }
 
+#### to test
+#if ${var.create_eip} {
+#  resource "aws_eip" "example" {
+#    instance = "${aws_instance.example.id}"
+#  }
+#}
+
+
+
 locals {
   ### tags for resource groupe base on HLD
   l_assie_tag = {
