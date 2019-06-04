@@ -26,7 +26,6 @@ Resource Group Name =
     Index           2 char  number
 
 # Input variables (* = mandatory)
-
 module_location {
     description = "Applicable to Azure MVP - ASSIE Project will follow the following rules - Azure Location is West Europe"
     type        = "string"
