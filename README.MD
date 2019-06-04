@@ -64,7 +64,6 @@ assie_exploitation {
     default     = "BOOST"
 }
 
-
 # Calling the az_resource_group module
 module "assie_rg" {
   source                = "git/az_resource_group"
