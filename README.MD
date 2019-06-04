@@ -11,7 +11,7 @@ Application Lifetime*    Only for Sandbox    End date (format)
 Exploitation*            All environment     Name of outsourcer ("BOOST")
 Security Level*          All environment     Standard, High, Conditional
 
-* only for Resource Group 
+* only for Resource Group
 
 # Naming of Resource Group
 
@@ -69,12 +69,12 @@ assie_exploitation {
 
 module "assie_rg" {
   source                = "git/az_resource_group"
-  module_location       = your "${var.}"
-# assie_environment     = from TF_VAR_assie_environment or your "${var.}
-# assie_securityLevel   = from TF_VAR_assie_securitylevel or your "${var.}
-# assie_exploitation    = from TF_VAR_assie_exploitation or your "${var.}
-# assie_applicationName = from TF_VAR_assie_applicationName or your "${var.}
-# assie_branch          = from TF_VAR_assie_branch or your "${var.}
+  assie_environment     = from TF_VAR_assie_environment or your "${var.}
+  assie_branch          = from TF_VAR_assie_branch or your "${var.}
+  assie_applicationName = from TF_VAR_assie_applicationName or your "${var.}
+  # module_location       = your "${var.}" or default
+  # assie_exploitation    = from TF_VAR_assie_exploitation or your "${var.} or default
+  # assie_securityLevel   = from TF_VAR_assie_securitylevel or your "${var.} or default
 }
 
 # using the Output variables
