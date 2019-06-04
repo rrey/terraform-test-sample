@@ -11,7 +11,7 @@ Application Lifetime*    Only for Sandbox    End date (format)
 Exploitation*            All environment     Name of outsourcer ("BOOST")
 Security Level*          All environment     Standard, High, Conditional
 
-* only for Resource Group
+* only for Resource Group 
 
 # Naming of Resource Group
 
