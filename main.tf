@@ -141,6 +141,7 @@ locals {
 
 ### Generate Resource Group
 resource "azurerm_resource_group" "assie_rg" {
+  count    = "${data.external.test_resourcegroup.result.RgExists == "true" ? 0 : 1 }"
   location = "${var.module_location}"
   name     = local.l_rgname
   tags     = local.l_environment_code == "s" ? local.l_assie_tag_sandbox : local.l_assie_tag
