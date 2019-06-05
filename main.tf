@@ -1,8 +1,8 @@
 #### module Azurerm Resource Group
 #### 20190530 - v0.1
 
-### provider for generate code
-provider random {}
+### provider for generate code (not needed)
+##  provider random {}
 
 ### local variables for HLD tags and assie resource group name format
 locals {
