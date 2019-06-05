@@ -24,7 +24,7 @@ Resource Group Name =
     Name            4 char  code of application
     Index           2 char  number
 
-# Input variables (* = mandatory)
+# Required Inputs
 module_location {
     description = "Applicable to Azure MVP - ASSIE Project will follow the following rules - Azure Location is West Europe"
     type        = "string"
@@ -49,6 +49,7 @@ assie_branch* {
     default     = ""
 }
 
+# Optional Inputs
 assie_securityLevel {
     description = "value pass from the environment variable TF_VAR_assie_securitylevel"
     type        = "string"
@@ -63,7 +64,7 @@ assie_exploitation {
 
 # Calling the az_resource_group module
 module "assie_rg" {
-  source                = "git/az_resource_group"
+  source                = "git/az_resource_group:ref=dev"
   assie_environment     = from TF_VAR_assie_environment or your "${var.}
   assie_branch          = from TF_VAR_assie_branch or your "${var.}
   assie_applicationName = from TF_VAR_assie_applicationName or your "${var.}
