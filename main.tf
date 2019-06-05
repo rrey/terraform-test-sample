@@ -104,22 +104,24 @@ locals {
   l_tag_security_level = local.l_security_level_map[local.l_securitylevelvar]
 }
 
-#### to test
-#if ${var.create_eip} {
-#  resource "aws_eip" "example" {
-#    instance = "${aws_instance.example.id}"
-#  }
-#}
-
-
+  locals {
+  ### tags for resource groupe base on HLD on SandBox
+    l_assie_tag_sandbox = {
+      ApplicationName     = local.l_tag_application_name
+      Branch              = local.l_tag_branch
+      Environment         = local.l_tag_environment
+      ApplicationLifetime = local.l_tag_application_lifetime
+      Exploitation        = local.l_tag_exploitation
+      SecurityLevel       = local.l_tag_security_level
+    }
+}
 
 locals {
-  ### tags for resource groupe base on HLD
+  ### tags for resource groupe base on HLD not on SandBox
   l_assie_tag = {
     ApplicationName     = local.l_tag_application_name
     Branch              = local.l_tag_branch
     Environment         = local.l_tag_environment
-    ApplicationLifetime = local.l_tag_application_lifetime
     Exploitation        = local.l_tag_exploitation
     SecurityLevel       = local.l_tag_security_level
   }
@@ -143,5 +145,6 @@ locals {
 resource "azurerm_resource_group" "assie_rg" {
   location = "${var.module_location}"
   name     = local.l_rgname
+  tags     = "${l_environment_code == "s" ? l_assie_tag_sandbox : l_assie_tag}"
   tags     = local.l_assie_tag
 }
