@@ -1,3 +1,5 @@
+# Create a resource Group in Azure
+
 # List of tags
 
 Tags will be used for Financial reporting and application lifecycle
