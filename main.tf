@@ -146,5 +146,4 @@ resource "azurerm_resource_group" "assie_rg" {
   location = "${var.module_location}"
   name     = local.l_rgname
   tags     = "${l_environment_code == "s" ? l_assie_tag_sandbox : l_assie_tag}"
-  tags     = local.l_assie_tag
 }
