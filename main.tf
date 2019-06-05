@@ -104,7 +104,7 @@ locals {
   l_tag_security_level = local.l_security_level_map[local.l_securitylevelvar]
 }
 
-  locals {
+locals {
   ### tags for resource groupe base on HLD on SandBox
     l_assie_tag_sandbox = {
       ApplicationName     = local.l_tag_application_name
@@ -117,7 +117,7 @@ locals {
 }
 
 locals {
-  ### tags for resource groupe base on HLD not on SandBox
+  ### tags for resource groupe base on HLD
   l_assie_tag = {
     ApplicationName     = local.l_tag_application_name
     Branch              = local.l_tag_branch
