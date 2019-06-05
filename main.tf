@@ -104,17 +104,15 @@ locals {
 
 locals {
   ### tags for resource groupe base on HLD on SandBox
-    l_assie_tag_sandbox = {
-      ApplicationName     = local.l_tag_application_name
-      Branch              = local.l_tag_branch
-      Environment         = local.l_tag_environment
-      ApplicationLifetime = local.l_tag_application_lifetime
-      Exploitation        = local.l_tag_exploitation
-      SecurityLevel       = local.l_tag_security_level
-    }
-}
+  l_assie_tag_sandbox = {
+    ApplicationName     = local.l_tag_application_name
+    Branch              = local.l_tag_branch
+    Environment         = local.l_tag_environment
+    ApplicationLifetime = local.l_tag_application_lifetime
+    Exploitation        = local.l_tag_exploitation
+    SecurityLevel       = local.l_tag_security_level
+  }
 
-locals {
   ### tags for resource groupe base on HLD
   l_assie_tag = {
     ApplicationName     = local.l_tag_application_name
@@ -128,14 +126,8 @@ locals {
 ### Calculate Resource Group Name base on HLD
 locals {
   l_cloud_code     = "az"
-}
-locals {
   l_resource_code  = "rg"
-}
-locals {
   l_resource_index = "01"
-}
-locals {
   l_rgname = "${local.l_cloud_code}${local.l_resource_code}${local.l_environment_code}${local.l_cmdb_application_code}${local.l_resource_index}"
 }
 
