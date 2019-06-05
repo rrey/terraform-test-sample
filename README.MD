@@ -1,4 +1,4 @@
-# Create a resource Group in Azure
+# Create a Resource Group in Azure
 
 # List of tags
 
