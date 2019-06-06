@@ -7,14 +7,14 @@
 ### local variables for HLD tags and assie resource group name format
 locals {
   ### map for environment code
-  l_environment_map_code = {
-    pro = "p"
-    qua = "q"
-    dev = "d"
-    pre = "r"
-    int = "i"
-    san = "s"
-    }
+#  l_environment_map_code = {
+#    pro = "p"
+#    qua = "q"
+#    dev = "d"
+#    pre = "r"
+#    int = "i"
+#    san = "s"
+#    }
 
 ### map for environment Name
   l_environment_map_name = {
@@ -35,6 +35,16 @@ locals {
     hd = "HD" 
     ts = "TS"
   }
+  
+  ### variable environment from  TF_VAR_assie_environment
+  #l_tag_environment_var = lower(substr("${var.assie_environment}",0,1))
+
+  ## Calculate environment Code
+  #l_environment_code = local.l_environment_map_code[local.l_tag_environment_var]
+
+  ### Calculate Environment Tag
+  l_tag_environment = lookup(local.l_environment_map_name, lower(substr("${var.assie_environment}",0,1)), "false")
+  #l_tag_environment = local.l_environment_map_name[local.l_environment_code]
 
   ### map for Total SecurityLevel
   l_security_level_map = {
@@ -49,12 +59,6 @@ locals {
   ### variable application code
   l_tag_application_code = "${var.assie_applicationCode == "null" ? lower(substr(local.l_application_name,0,4)) : lower(substr(var.assie_applicationCode,0,4))}"
 
-  ### variable environment from  TF_VAR_assie_environment
-  l_tag_environment_var = lower(substr("${var.assie_environment}",0,3))
-
-  ### variable security level from TF_VAR_assie_securityLevel
-  l_securitylevelvar = lower("${var.assie_securityLevel}")
-
   ### Calculate tag exploitation from TF_VAR_assie_exploitation
   l_exploitation = lower("${var.assie_exploitation}") 
 
@@ -65,26 +69,17 @@ locals {
   l_tag_branch = local.l_branch_map[local.l_branchvar]
 
   ### Calculate tag Application Name
-  ## Calculate environment Code
-  l_environment_code = local.l_environment_map_code[local.l_tag_environment_var]
-  # Calculate tag Application Name
   l_tag_application_name = "${local.l_application_name}-${local.l_environment_code}"
 
-  ### Calculate Environment Tag
-  l_tag_environment = local.l_environment_map_name[local.l_environment_code]
-
-  ### Calulate tag Application Life Time (end date) - test 1 year
-  ## timeadd(time, duration)
-  ## Returns a UTC timestamp string corresponding to adding a given duration to time in RFC 3339 format.
-  l_application_duration = "${var.assie_applicationDuration}h"
-
-  # Calculate tag Application LifeTime
+  ### Calulate tag Application Life Time
+  l_application_duration     = "${var.assie_applicationDuration}h"
   l_tag_application_lifetime = timeadd(timestamp(), local.l_application_duration)
 
-  ### Calculate tag exploitation from TF_VAR_assie_exploitation
+  ### Calculate tag Exploitation from TF_VAR_assie_exploitation
   l_tag_exploitation = upper("${var.assie_exploitation}") 
 
   ### Calculate tag Security Level
+  l_securitylevelvar   = lower("${var.assie_securityLevel}")
   l_tag_security_level = local.l_security_level_map[local.l_securitylevelvar]
 
   ### tags for resource groupe base on HLD on SandBox
