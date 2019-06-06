@@ -4,6 +4,11 @@
 ### provider for generate code (not needed)
 ##  provider random {}
 
+
+
+assie_applicationCode = "${var.assie_applicationCode == "null" ? lower(substr(local.l_application_name,0,4)) : var.assie_applicationCode}"
+
+
 ### local variables for HLD tags and assie resource group name format
 locals {
   ### map for environment code
