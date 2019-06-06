@@ -104,6 +104,3 @@ module "assie_rg" {
 = "${module.assie_rg.tagSecurityLevel.value}"
   description = "Security Level - Standard, High or Conditional"
 
-# out of this module
-Maintenance Window       All environment     Default value - VM can be stopped or started at any time - Other value for maintenance windows in hour per week
-Opening Hours            All environment     Default value - VM must be up 24.24 Hours, 7.7 days
