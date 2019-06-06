@@ -64,7 +64,7 @@ locals {
   ### Calulate tag Application Life Time (end date) - test 1 year
   ## timeadd(time, duration)
   ## Returns a UTC timestamp string corresponding to adding a given duration to time in RFC 3339 format.
-  l_application_end_date = "1y"
+  l_application_end_date = "8760h"
 
   # Calculate tag Application LifeTime
   l_tag_application_lifetime = timeadd(timestamp(), local.l_application_end_date)
