@@ -53,6 +53,12 @@ module_location {
     default     = "westeurope"
 }
 
+variable assie_applicationDuration {
+    description = "Application Life Time in Hours"
+    type        = "string"
+    default     = "8760"
+}
+
 assie_securityLevel {
     description = "value pass from the environment variable TF_VAR_assie_securitylevel"
     type        = "string"
