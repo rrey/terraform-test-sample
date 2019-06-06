@@ -16,6 +16,16 @@ locals {
     san = "s"
     }
 
+### map for environment Name
+  l_environment_map = {
+    pro = "production"
+    qua = "qualification"
+    dev = "development"
+    pre = "pre-production"
+    int = "integration"
+    san = "sandbox"
+    }
+  
   ### map for Total Branch
   l_branch_map = {
     ms = "MS" 
