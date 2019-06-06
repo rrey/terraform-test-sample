@@ -7,7 +7,7 @@
 ### local variables for HLD tags and assie resource group name format
 locals {
   ### map for environment code
-  l_environment_map = {
+  l_environment_map_code = {
     pro = "p"
     qua = "q"
     dev = "d"
@@ -17,7 +17,7 @@ locals {
     }
 
 ### map for environment Name
-  l_environment_map = {
+  l_environment_map_name = {
     pro = "production"
     qua = "qualification"
     dev = "development"
@@ -66,10 +66,12 @@ locals {
 
   ### Calculate tag Application Name
   ## Calculate environment Code
-  l_tag_environment = local.l_environment_map[local.l_tag_environment_var]
-
+  l_environment_code = local.l_environment_map_code[local.l_tag_environment_var]
   # Calculate tag Application Name
-  l_tag_application_name = "${local.l_application_name}-${local.l_tag_environment}"
+  l_tag_application_name = "${local.l_application_name}-${local.l_environment_code}"
+
+  ### Calculate Environment Tag
+  l_tag_environment = local.l_environment_map_name[local.l_environment_code]
 
   ### Calulate tag Application Life Time (end date) - test 1 year
   ## timeadd(time, duration)
