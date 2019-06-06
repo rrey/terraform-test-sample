@@ -47,7 +47,7 @@ locals {
   l_application_name = trimspace(lower("${var.assie_applicationName}"))
 
   ### variable application code from CMDB
-  l_cmdb_application_code = lower(substr(local.l_application_name,0,4))
+  l_tag_application_code = lower(substr(local.l_application_name,0,4))
 
   ### variable environment from  TF_VAR_assie_environment
   l_tag_environment_var = lower(substr("${var.assie_environment}",0,3))
@@ -90,6 +90,7 @@ locals {
   ### tags for resource groupe base on HLD on SandBox
   l_assie_tag_sandbox = {
     ApplicationName     = local.l_tag_application_name
+    ApplicationCode     = local.l_tag_application_code
     Branch              = local.l_tag_branch
     Environment         = local.l_tag_environment
     ApplicationLifetime = local.l_tag_application_lifetime
@@ -100,6 +101,7 @@ locals {
   ### tags for resource groupe base on HLD
   l_assie_tag = {
     ApplicationName     = local.l_tag_application_name
+    ApplicationCode     = local.l_tag_application_code
     Branch              = local.l_tag_branch
     Environment         = local.l_tag_environment
     Exploitation        = local.l_tag_exploitation
@@ -110,7 +112,7 @@ locals {
   l_cloud_code     = "az"
   l_resource_code  = "rg"
   l_resource_index = "01"
-  l_rgname = "${local.l_cloud_code}${local.l_resource_code}${local.l_environment_code}${local.l_cmdb_application_code}${local.l_resource_index}"
+  l_rgname = "${local.l_cloud_code}${local.l_resource_code}${local.l_environment_code}-${local.l_application_name}-${local.l_resource_index}"
 }
 
 ### Test if Resource Group exist
