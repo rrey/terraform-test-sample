@@ -46,8 +46,8 @@ locals {
   ### variable applicationName from TF_VAR_assie_applicationName
   l_application_name = replace(trimspace(lower("${var.assie_applicationName}"))," ","")
 
-  ### variable application code from CMDB
-  l_tag_application_code = "${var.assie_applicationCode == "null" ? lower(substr(local.l_application_name,0,4)) : var.assie_applicationCode}"
+  ### variable application code
+  l_tag_application_code = "${var.assie_applicationCode == "null" ? lower(substr(local.l_application_name,0,4)) : lower(substr(var.assie_applicationCode,0,4))}"
 
   ### variable environment from  TF_VAR_assie_environment
   l_tag_environment_var = lower(substr("${var.assie_environment}",0,3))
