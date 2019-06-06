@@ -10,6 +10,10 @@ variable assie_applicationName {
     default     = ""
 }
 
+variable assie_applicationCode { 
+    default = "null"
+}
+
 variable assie_branch {
     description = "Name of branch - from the environment variable TF_VAR_assie_branch"
     type        = "string"
