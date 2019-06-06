@@ -76,10 +76,10 @@ locals {
   ### Calulate tag Application Life Time (end date) - test 1 year
   ## timeadd(time, duration)
   ## Returns a UTC timestamp string corresponding to adding a given duration to time in RFC 3339 format.
-  l_application_end_date = "8760h"
+  l_application_duration = "${assie_LifeTimeDuration}h"
 
   # Calculate tag Application LifeTime
-  l_tag_application_lifetime = timeadd(timestamp(), local.l_application_end_date)
+  l_tag_application_lifetime = timeadd(timestamp(), local.l_application_duration)
 
   ### Calculate tag exploitation from TF_VAR_assie_exploitation
   l_tag_exploitation = upper("${var.assie_exploitation}") 
