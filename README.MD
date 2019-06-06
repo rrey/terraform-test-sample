@@ -8,7 +8,7 @@ All Tags are set to all resources ; some tags are also set at resource group lev
 
 Application name*        All environment     Key value between Azure and CMDB.
 Branch*                  All environment     TOTAL Business Branch (MS EP RC GP HD TS)
-Environment*             All environment     Single character (Pro)duction (Qua)lification (Dev)elopment (pRe)-prod (Int)egration (San)dbox
+Environment*             All environment     Single character (P)roduction (Q)ualification (D)evelopment p(R)e-prod (I)ntegration (S)andbox
 Application Lifetime*    Only for Sandbox    End date (format)
 Exploitation*            All environment     Name of outsourcer ("BOOST")
 Security Level*          All environment     Standard, High, Conditional
