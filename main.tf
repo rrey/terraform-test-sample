@@ -4,11 +4,6 @@
 ### provider for generate code (not needed)
 ##  provider random {}
 
-
-
-assie_applicationCode = "${var.assie_applicationCode == "null" ? lower(substr(local.l_application_name,0,4)) : var.assie_applicationCode}"
-
-
 ### local variables for HLD tags and assie resource group name format
 locals {
   ### map for environment code
@@ -52,7 +47,7 @@ locals {
   l_application_name = trimspace(lower("${var.assie_applicationName}"))
 
   ### variable application code from CMDB
-  l_tag_application_code = lower(substr(local.l_application_name,0,4))
+  l_tag_application_code = "${var.assie_applicationCode == "null" ? lower(substr(local.l_application_name,0,4)) : var.assie_applicationCode}"
 
   ### variable environment from  TF_VAR_assie_environment
   l_tag_environment_var = lower(substr("${var.assie_environment}",0,3))
