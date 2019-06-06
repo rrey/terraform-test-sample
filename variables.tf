@@ -34,3 +34,8 @@ variable assie_exploitation {
     default     = "BOOST"
 }
 
+variable assie_endDateDuration {
+    description = "on year"
+    type        = "string"
+    default     = "8760h"
+}
