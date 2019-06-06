@@ -40,7 +40,7 @@ locals {
   l_cmdb_application_code = lower(substr(local.l_application_name,0,4))
 
   ### variable environment from  TF_VAR_assie_environment
-  l_tag_environment = lower(substr("${var.assie_environment}",0,3))
+  l_tag_environment_var = lower(substr("${var.assie_environment}",0,3))
 
   ### variable security level from TF_VAR_assie_securityLevel
   l_securitylevelvar = lower("${var.assie_securityLevel}")
@@ -56,10 +56,10 @@ locals {
 
   ### Calculate tag Application Name
   ## Calculate environment Code
-  l_environment_code = local.l_environment_map[local.l_tag_environment]
+  l_tag_environment = local.l_environment_map[local.l_tag_environment_var]
 
   # Calculate tag Application Name
-  l_tag_application_name = "${local.l_application_name}-${local.l_environment_code}"
+  l_tag_application_name = "${local.l_application_name}-${local.l_tag_environment}"
 
   ### Calulate tag Application Life Time (end date) - test 1 year
   ## timeadd(time, duration)
