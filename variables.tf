@@ -34,8 +34,8 @@ variable assie_exploitation {
     default     = "BOOST"
 }
 
-variable assie_endDateDuration {
-    description = "on year"
+variable assie_applicationDuration {
+    description = "Application Life Time in Hours"
     type        = "string"
-    default     = "8760h"
+    default     = "8760"
 }
