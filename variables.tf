@@ -7,7 +7,7 @@ variable module_location {
 variable assie_applicationName {
     description = "Name of application - from a variable or the environment variable TF_VAR_assie_applicationName"
     type        = "string"
-    default     = ""
+    default     = "null"
 }
 
 variable assie_applicationCode { 
