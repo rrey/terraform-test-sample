@@ -33,26 +33,23 @@ locals {
     conditional = "Conditional"
   }
 
-  ### variable environment from  TF_VAR_assie_environment
+  ### variable Environment
   # Calculate environment Code
   l_environment_code = lower(substr("${var.assie_environment}",0,1))
   # Test Environment Code
   l_tag_environment = lookup(local.l_environment_map, local.l_environment_code, "false")
 
-  ### variable applicationName from TF_VAR_assie_applicationName
-  l_application_name = replace(trimspace(lower("${var.assie_applicationName}"))," ","")
+  ### variable application Name
+  l_application_name = "${var.assie_applicationName == "null" ? lower(substr(var.assie_applicationCode,0,4)) : replace(trimspace(lower("${var.assie_applicationName}"))," ","")}"
 
-  ### variable application code
+  ### variable application Code
   l_tag_application_code = "${var.assie_applicationCode == "null" ? lower(substr(local.l_application_name,0,4)) : lower(substr(var.assie_applicationCode,0,4))}"
 
-  ### Calculate tag exploitation from TF_VAR_assie_exploitation
+  ### Calculate tag Exploitation
   l_exploitation = lower("${var.assie_exploitation}") 
 
-  ### Calculate tag exploitation from TF_VAR_assie_branch
-  l_branchvar = lower(substr("${var.assie_branch}",0,2))
-
   ### Calculate tag Branch code
-  l_tag_branch = local.l_branch_map[local.l_branchvar]
+  l_tag_branch = local.l_branch_map[lower(substr("${var.assie_branch}",0,2))]
 
   ### Calculate tag Application Name
   l_tag_application_name = "${local.l_application_name}-${local.l_environment_code}"
