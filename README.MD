@@ -22,7 +22,7 @@ Naming Syntax use the following rules :
 Resource Group Name = 
     Cloud Prefix    2 char  az, as, gc
     Type            2 char  rg
-    Environment     1 char  (p)rod, (q)ual, (d)ev, (p)reprod, (i)ntegration, (s)andbox
+    Environment     1 char  (p)rod, (q)ual, (d)ev, p(r)eprod, (i)ntegration, (s)andbox
     Name            4 char  code of application
     Index           2 char  number
 
