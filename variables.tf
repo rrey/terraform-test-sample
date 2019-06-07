@@ -5,35 +5,36 @@ variable module_location {
 }
 
 variable assie_applicationName {
-    description = "Name of applicationr - from the environment variable TF_VAR_assie_applicationName"
+    description = "Name of application - from a variable or the environment variable TF_VAR_assie_applicationName"
     type        = "string"
     default     = ""
 }
 
 variable assie_applicationCode { 
+    description = " Code of application - from a variable or the environment variable TF_VAR_assie_applicationCode"
     default = "null"
 }
 
 variable assie_branch {
-    description = "Name of branch - from the environment variable TF_VAR_assie_branch"
+    description = "Name of branch - from a variable or the environment variable TF_VAR_assie_branch"
     type        = "string"
     default     = ""
 }
 
 variable assie_environment {
-    description = "value pass from the environment variable TF_VAR_assie_environment"
+    description = "value pass from a variable or the environment variable TF_VAR_assie_environment"
     type        = "string"
     default     = ""
 }
 
 variable assie_securityLevel {
-    description = "value pass from the environment variable TF_VAR_assie_securityLevel"
+    description = "value pass from a variable or the environment variable TF_VAR_assie_securityLevel"
     type        = "string"
     default     = "standard"
 }
 
 variable assie_exploitation {
-    description = "Name of outsourcer - from the environment variable TF_VAR_assie_exploitation"
+    description = "Name of outsourcer - from a variable or the environment variable TF_VAR_assie_exploitation"
     type        = "string"
     default     = "BOOST"
 }
