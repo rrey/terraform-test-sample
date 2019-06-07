@@ -4,20 +4,8 @@
 ### provider for generate code (not needed)
 ##  provider random {}
 
-### local variables for HLD tags and assie resource group name format
-locals {
-  ### map for environment code
-#  l_environment_map_code = {
-#    pro = "p"
-#    qua = "q"
-#    dev = "d"
-#    pre = "r"
-#    int = "i"
-#    san = "s"
-#    }
-
 ### map for environment Name
-  l_environment_map_name = {
+  l_environment_map = {
     p = "production"
     q = "qualification"
     d = "development"
@@ -36,22 +24,18 @@ locals {
     ts = "TS"
   }
   
-  ### variable environment from  TF_VAR_assie_environment
-  #l_tag_environment_var = lower(substr("${var.assie_environment}",0,1))
-
-  ## Calculate environment Code
-  #l_environment_code = local.l_environment_map_code[local.l_tag_environment_var]
-
-  ### Calculate Environment Tag
-  l_tag_environment = lookup(local.l_environment_map_name, lower(substr("${var.assie_environment}",0,1)), "false")
-  #l_tag_environment = local.l_environment_map_name[local.l_environment_code]
-
   ### map for Total SecurityLevel
   l_security_level_map = {
     standard    = "Standard"
     high        = "High"
     conditional = "Conditional"
   }
+
+  ### variable environment from  TF_VAR_assie_environment
+  # Calculate environment Code
+  l_environment_code = lower(substr("${var.assie_environment}",0,1)
+  # Test Environment Code
+  l_tag_environment = lookup(local.l_environment_map, l_environment_code, "false")
 
   ### variable applicationName from TF_VAR_assie_applicationName
   l_application_name = replace(trimspace(lower("${var.assie_applicationName}"))," ","")
@@ -117,7 +101,7 @@ locals {
 
 ### Generate Resource Group
 resource "azurerm_resource_group" "assie_rg" {
-#  count    = "${data.external.test_resourcegroup.result.RgExists == "true" ? 0 : 1 }"
+  count    = "${local.l_tag_environment == "false" ? 0 : 1 }"
   location = "${var.module_location}"
   name     = local.l_rgname
   tags     = local.l_environment_code == "s" ? local.l_assie_tag_sandbox : local.l_assie_tag
