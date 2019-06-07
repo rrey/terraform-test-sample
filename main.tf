@@ -4,7 +4,9 @@
 ### provider for generate code (not needed)
 ##  provider random {}
 
-### map for environment Name
+locals {
+
+  ### map for environment Name
   l_environment_map = {
     p = "production"
     q = "qualification"
@@ -12,7 +14,7 @@
     p = "pre-production"
     i = "integration"
     s = "sandbox"
-    }
+  }
   
   ### map for Total Branch
   l_branch_map = {
