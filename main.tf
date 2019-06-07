@@ -35,9 +35,9 @@ locals {
 
   ### variable environment from  TF_VAR_assie_environment
   # Calculate environment Code
-  l_environment_code = lower(substr("${var.assie_environment}",0,1)
+  l_environment_code = lower(substr("${var.assie_environment}",0,1))
   # Test Environment Code
-  l_tag_environment = lookup("${local.l_environment_map}","${local.l_environment_code}","false")
+  l_tag_environment = lookup(local.l_environment_map, local.l_environment_code, "false")
 
   ### variable applicationName from TF_VAR_assie_applicationName
   l_application_name = replace(trimspace(lower("${var.assie_applicationName}"))," ","")
