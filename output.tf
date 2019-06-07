@@ -13,6 +13,11 @@ output "tagApplicationName" {
   value       = local.l_tag_application_name
 }
 
+output "tagApplicationCode" {
+  description = "Application code as Assie naming convention"
+  value       = local.l_tag_application_code
+}
+
 output "tagBranch" {
   description = "Total Branch"
   value       = local.l_tag_branch
