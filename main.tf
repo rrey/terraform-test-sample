@@ -8,12 +8,12 @@ locals {
 
   ### map for environment Name
   l_environment_map = {
-    p = "production"
-    q = "qualification"
-    d = "development"
-    p = "pre-production"
-    i = "integration"
-    s = "sandbox"
+    p = "p"
+    q = "q"
+    d = "d"
+    r = "r"
+    i = "i"
+    s = "s"
   }
   
   ### map for Total Branch
