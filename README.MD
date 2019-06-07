@@ -23,19 +23,27 @@ Resource Group Name =
     Cloud Prefix    2 char  az, as, gc
     Type            2 char  rg
     Environment     1 char  (p)rod, (q)ual, (d)ev, p(r)eprod, (i)ntegration, (s)andbox
-    Name            4 char  code of application
+    Name            x char  Name of application without space
     Index           2 char  number
 
 # Required Inputs
 
 assie_applicationName* {
-    description = "Name of applicationr - from the environment variable TF_VAR_assie_applicationName"
+    description = "Name of application - from the environment variable TF_VAR_assie_applicationName"
     type        = "string"
-    default     = ""
+    default     = "null"
+}
+
+or
+
+assie_applicationCode* {
+    description = "Code of application - from the environment variable TF_VAR_assie_applicationName"
+    type        = "string"
+    default     = "null"
 }
 
 assie_environment* {
-    description = "value pass from the environment variable TF_VAR_assie_environment"
+    description = "1 char - value pass from the environment variable TF_VAR_assie_environment"
     type        = "string"
     default     = ""
 }
@@ -77,6 +85,9 @@ module "assie_rg" {
   assie_environment     = from TF_VAR_assie_environment or your "${var.}
   assie_branch          = from TF_VAR_assie_branch or your "${var.}
   assie_applicationName = from TF_VAR_assie_applicationName or your "${var.}
+or
+  assie_applicationCode = from TF_VAR_assie_applicationCode or your "${var.}
+
   # module_location     = your "${var.}" or default
   # assie_exploitation  = from TF_VAR_assie_exploitation or your "${var.} or default
   # assie_securityLevel = from TF_VAR_assie_securitylevel or your "${var.} or default
