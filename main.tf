@@ -99,7 +99,7 @@ locals {
 #}
 
 ### Generate Resource Group
-resource "azurerm_resource_group" "assie_rg" {
+resource "azurerm_resource_group" "assie_resource_group" {
   count    = "${local.l_tag_environment == "false" ? 0 : 1 }"
   location = "${var.module_location}"
   name     = local.l_rgname
