@@ -1,46 +1,46 @@
-variable module_location {
+variable "module_location" {
     description = "Applicable to Azure MVP - ASSIE Project will follow the following rules - Azure Location is West Europe"
-    type        = "string"
+    type        = string
     default     = "westeurope"
 }
 
-variable assie_applicationName {
+variable "assie_applicationName" {
     description = "Name of application - from a variable or the environment variable TF_VAR_assie_applicationName"
-    type        = "string"
+    type        = string
     default     = "null"
 }
 
-variable assie_applicationCode { 
+variable "assie_applicationCode" { 
     description = " Code of application - from a variable or the environment variable TF_VAR_assie_applicationCode"
     default = "null"
 }
 
-variable assie_branch {
+variable "assie_branch" {
     description = "Name of branch - from a variable or the environment variable TF_VAR_assie_branch"
-    type        = "string"
+    type        = string
     default     = ""
 }
 
-variable assie_environment {
+variable "assie_environment" {
     description = "value pass from a variable or the environment variable TF_VAR_assie_environment"
-    type        = "string"
+    type        = string
     default     = ""
 }
 
-variable assie_securityLevel {
+variable "assie_securityLevel" {
     description = "value pass from a variable or the environment variable TF_VAR_assie_securityLevel"
-    type        = "string"
+    type        = string
     default     = "standard"
 }
 
-variable assie_exploitation {
+variable "assie_exploitation" {
     description = "Name of outsourcer - from a variable or the environment variable TF_VAR_assie_exploitation"
-    type        = "string"
+    type        = string
     default     = "BOOST"
 }
 
-variable assie_applicationDuration {
+variable "assie_applicationDuration" {
     description = "Application Life Time in Hours"
-    type        = "string"
+    type        = string
     default     = "8760"
 }
