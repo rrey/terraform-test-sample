@@ -1,11 +1,11 @@
 output "assieRgName" {
   description = "The resource group name"
-  value       = "${azurerm_resource_group.assie_rg[0].name}"
+  value       = "${azurerm_resource_group.assie_resource_group[0].name}"
 }
 
 output "assieRgLocation" {
   description = "The resource group location"
-  value       = "${azurerm_resource_group.assie_rg[0].location}"
+  value       = "${azurerm_resource_group.assie_resource_group[0].location}"
 }
 
 output "tagApplicationName" {
