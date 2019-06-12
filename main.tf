@@ -1,8 +1,6 @@
 #### module Azurerm Resource Group
 #### DLR - 20190530 - v0.1
 
-
-
 locals {
 
   ### map for environment Name
