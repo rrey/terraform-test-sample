@@ -1,8 +1,7 @@
 #### module Azurerm Resource Group
-#### 20190530 - v0.1
+#### DLR - 20190530 - v0.1
 
-### provider for generate code (not needed)
-##  provider random {}
+
 
 locals {
 
