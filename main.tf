@@ -38,10 +38,10 @@ locals {
 
   ### variable application Name
   #l_application_name = "${var.assie_applicationName} == "null" ? lower(substr(var.assie_applicationCode,0,4)) : replace(trimspace(lower("${var.assie_applicationName}"))," ","")
-  l_application_name = "${var.assie_applicationName}" == "null" ? substr(lower(${var.assie_applicationCode}),0,4) : lower(trimspace(${var.assie_applicationName}))
+  l_application_name = var.assie_applicationName == "null" ? substr(lower(${var.assie_applicationCode}),0,4) : lower(trimspace(${var.assie_applicationName}))
 
   ### variable application Code
-  l_tag_application_code = "${var.assie_applicationCode}" == "null" ? substr(lower(local.l_application_name),0,4) : substr(lower(${var.assie_applicationCode}),0,4)
+  l_tag_application_code = var.assie_applicationCode == "null" ? substr(lower(local.l_application_name),0,4) : substr(lower(${var.assie_applicationCode}),0,4)
 
   ### Calculate tag Exploitation
   l_exploitation = lower("${var.assie_exploitation}") 
