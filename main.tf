@@ -38,7 +38,7 @@ locals {
 
   ### variable application Name
   #l_application_name = "${var.assie_applicationName} == "null" ? lower(substr(var.assie_applicationCode,0,4)) : replace(trimspace(lower("${var.assie_applicationName}"))," ","")
-  l_application_name = "${var.assie_applicationName}" == "null" ? lower(substr(var.assie_applicationCode,0,4)) : trimspace(lower("${var.assie_applicationName}"))
+  l_application_name = "${var.assie_applicationName}" == "null" ? substr(lower(${var.assie_applicationCode}),0,4) : substr(trimspace(lower(${var.assie_applicationName})),0,4)
 
   ### variable application Code
   l_tag_application_code = ${var.assie_applicationCode} == "null" ? lower(substr(local.l_application_name,0,4)) : lower(substr("${var.assie_applicationCode}",0,4))
