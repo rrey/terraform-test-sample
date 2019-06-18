@@ -37,10 +37,11 @@ locals {
   l_tag_environment = lookup(local.l_environment_map, local.l_environment_code, "false")
 
   ### variable application Name
-  l_application_name = "${var.assie_applicationName == "null" ? lower(substr(var.assie_applicationCode,0,4)) : replace(trimspace(lower("${var.assie_applicationName}"))," ","")}"
+  #l_application_name = "${var.assie_applicationName} == "null" ? lower(substr(var.assie_applicationCode,0,4)) : replace(trimspace(lower("${var.assie_applicationName}"))," ","")
+  l_application_name = "${var.assie_applicationName}" == "null" ? lower(substr(var.assie_applicationCode,0,4)) : trimspace(lower("${var.assie_applicationName}"))
 
   ### variable application Code
-  l_tag_application_code = "${var.assie_applicationCode == "null" ? lower(substr(local.l_application_name,0,4)) : lower(substr(var.assie_applicationCode,0,4))}"
+  l_tag_application_code = ${var.assie_applicationCode} == "null" ? lower(substr(local.l_application_name,0,4)) : lower(substr("${var.assie_applicationCode}",0,4))
 
   ### Calculate tag Exploitation
   l_exploitation = lower("${var.assie_exploitation}") 
