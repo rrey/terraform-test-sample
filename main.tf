@@ -34,7 +34,7 @@ locals {
   # Calculate environment Code
   l_environment_code = lower(substr("${var.assie_environment}",0,1))
   # Test Environment Code
-  l_tag_environment = lookup(local.l_environment_map, local.l_environment_code, "false")
+  l_tag_environment = lookup(local.l_environment_map, local.l_environment_code, "r")
 
   ### variable application Name
   l_application_name = "${var.assie_applicationName}" == "null" ? lower(substr(var.assie_applicationCode,0,4)) : replace(trimspace(lower("${var.assie_applicationName}"))," ","")
