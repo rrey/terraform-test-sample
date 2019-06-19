@@ -1,6 +1,6 @@
 #### module Azurerm Resource Group
 #### DLR - 20190530 - v0.1
-
+####################################### ATTENTION Ajout de DistrictCode en variable
 locals {
 
   ### map for environment Name
