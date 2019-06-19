@@ -4,6 +4,11 @@ variable "assie_location" {
     default     = "westeurope"
 }
 
+variable "assie_districtCode" { 
+    description = "Code of District - from a variable or the environment variable TF_VAR_assie_districtCode"
+    default = ""
+}
+
 variable "assie_applicationName" {
     description = "Name of application - from a variable or the environment variable TF_VAR_assie_applicationName"
     type        = string
