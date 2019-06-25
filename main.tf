@@ -90,11 +90,6 @@ locals {
   l_rgname = "${local.l_cloud_code}${local.l_resource_code}${local.l_environment_code}-${local.l_application_name}-${local.l_resource_index}"
 }
 
-### Test if Resource Group exist
-#data "external" "test_resourcegroup" {
-#  program  = ["bash", "-c", "if [ -z \"$(az group exists -n \"${local.l_rgname}\")\" ]; then echo '{\"RgExists\": \"true\"}'; else echo '{\"RgExists\": \"false\"}'; fi"]
-#}
-
 ### Generate Resource Group
 resource "azurerm_resource_group" "assie_resource_group" {
   count    = "${local.l_tag_environment == "false" ? 0 : 1 }"
