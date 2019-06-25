@@ -1,3 +1,15 @@
+variable "assie_branch" {
+    description = "Name of branch - from a variable or the environment variable TF_VAR_assie_branch"
+    type        = string
+    default     = ""
+}
+
+variable "assie_environment" {
+    description = "value pass from a variable or the environment variable TF_VAR_assie_environment"
+    type        = string
+    default     = ""
+}
+
 variable "assie_location" {
     description = "Applicable to Azure MVP - ASSIE Project will follow the following rules - Azure Location is West Europe"
     type        = string
@@ -13,18 +25,6 @@ variable "assie_applicationName" {
 variable "assie_applicationCode" { 
     description = " Code of application - from a variable or the environment variable TF_VAR_assie_applicationCode"
     default = "null"
-}
-
-variable "assie_branch" {
-    description = "Name of branch - from a variable or the environment variable TF_VAR_assie_branch"
-    type        = string
-    default     = ""
-}
-
-variable "assie_environment" {
-    description = "value pass from a variable or the environment variable TF_VAR_assie_environment"
-    type        = string
-    default     = ""
 }
 
 variable "assie_securityLevel" {
