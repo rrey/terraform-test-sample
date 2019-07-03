@@ -43,7 +43,7 @@ locals {
   l_tag_application_code = "${var.assie_applicationCode}" == "null" ? lower(substr(local.l_application_name,0,4)) : lower(substr(var.assie_applicationCode,0,4))
 
   ### Calculate tag Exploitation
-  l_exploitation = lower("${var.assie_exploitation}") 
+  l_exploitation = lower("${var.assie_exploitation}")
 
   ### Calculate tag Branch code
   l_tag_branch = local.l_branch_map[lower(substr("${var.assie_branch}",0,2))]
@@ -56,7 +56,7 @@ locals {
   l_tag_application_lifetime = timeadd(timestamp(), local.l_application_duration)
 
   ### Calculate tag Exploitation from TF_VAR_assie_exploitation
-  l_tag_exploitation = upper("${var.assie_exploitation}") 
+  l_tag_exploitation = upper("${var.assie_exploitation}")
 
   ### Calculate tag Security Level
   l_securitylevelvar   = lower("${var.assie_securityLevel}")
