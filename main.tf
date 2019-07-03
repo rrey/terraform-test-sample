@@ -49,7 +49,7 @@ locals {
   l_tag_branch = local.l_branch_map[lower(substr("${var.assie_branch}",0,2))]
 
   ### Calculate tag Application Name
-  l_tag_application_name = "${local.l_application_name}-${local.l_environment_code}"
+  l_tag_application_name = "${local.l_application_name}"
 
   ### Calulate tag Application Life Time
   l_application_duration     = "${var.assie_applicationDuration}h"
