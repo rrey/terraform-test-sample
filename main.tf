@@ -47,7 +47,7 @@ locals {
 
   ### Calculate tag Branch code
   #l_tag_branch = local.l_branch_map[lower(substr("${var.assie_branch}",0,2))]
-  l_tag_branch = upper(replace(trimspace("${var.assie_branch}"," ","")))
+  l_tag_branch = replace(trimspace(upper("${var.assie_branch}"))," ","")
   
   ### Calculate tag Application Name
   l_tag_application_name = "${local.l_application_name}"
