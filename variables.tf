@@ -44,3 +44,9 @@ variable "assie_applicationDuration" {
     type        = string
     default     = "8760"
 }
+
+variable "module_count" {
+    description = "Variable used for count, pass 0 to delete the resource"
+    type    = number
+    default = 1
+}
