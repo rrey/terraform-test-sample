@@ -1,3 +1,10 @@
+### Variable exist
+variable "module_exist" {
+    description = "Resource create or destroy"
+    type        = bool
+    default     = true
+}
+
 variable "assie_branch" {
     description = "Name of branch - from a variable or the environment variable TF_VAR_assie_branch"
     type        = string
