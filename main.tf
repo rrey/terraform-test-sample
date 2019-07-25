@@ -1,5 +1,5 @@
 #### module Azurerm Resource Group
-#### DLR - 20190530 - v0.1
+#### DLR - 20190530 - v0.2
 
 locals {
 
