@@ -42,3 +42,8 @@ output "tagSecurityLevel" {
   description = "Security Level"
   value       = local.l_tag_security_level
 }
+
+output "tags" {
+  description = "all tags"
+  value       = local.l_assie_tag
+}
