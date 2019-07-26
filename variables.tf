@@ -2,7 +2,7 @@
 variable "module_exist" {
     description = "Resource create or destroy"
     type        = bool
-    default     = true
+    default     = 1
 }
 
 variable "assie_branch" {
