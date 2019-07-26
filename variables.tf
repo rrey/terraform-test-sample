@@ -1,4 +1,4 @@
-### Variable exist
+### Variable module_exist
 variable "module_exist" {
     description = "Resource create or destroy"
     type        = bool
