@@ -94,7 +94,7 @@ locals {
 
 ### Generate Resource Group
 resource "azurerm_resource_group" "assie_resource_group" {
-  count    = tonumber("${local.l_tag_environment == "false" ? 0 : 1 }") * tonumber("${var.module_exist == 1 ? 1 : 0}")
+  count    = tonumber("${local.l_tag_environment == "false" ? 0 : 1 }") * tonumber("${var.module_exist == true ? 1 : 0}")
   location = "${var.assie_location}"
   name     = local.l_rgname
   tags     = local.l_environment_code == "s" ? local.l_assie_tag_sandbox : local.l_assie_tag
