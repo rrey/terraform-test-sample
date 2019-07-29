@@ -1,6 +1,6 @@
-### Variable module_exist
+### Variable module_create
 variable "module_exist" {
-    description = "Resource create or destroy"
+    description = "Resource create"
     type        = bool
     default     = true
 }
