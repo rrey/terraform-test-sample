@@ -1,5 +1,5 @@
 #### module Azurerm Resource Group
-#### DLR - 20190530 - v0.1
+#### DLR - 20190530 - v0.2
 
 locals {
 
@@ -47,6 +47,7 @@ locals {
 
   ### Calculate tag Branch code
   #l_tag_branch = local.l_branch_map[lower(substr("${var.assie_branch}",0,2))]
+  #l_tag_branch = upper(replace(trimspace("${var.assie_branch}"," ","")))
   l_tag_branch = replace(trimspace(upper("${var.assie_branch}"))," ","")
   
   ### Calculate tag Application Name
@@ -93,7 +94,7 @@ locals {
 
 ### Generate Resource Group
 resource "azurerm_resource_group" "assie_resource_group" {
-  count    = "${local.l_tag_environment == "false" ? 0 : 1 }"
+  count    = tonumber("${local.l_tag_environment == false ? 0 : 1 }") * tonumber("${var.module_create == true ? 1 : 0}")
   location = "${var.assie_location}"
   name     = local.l_rgname
   tags     = local.l_environment_code == "s" ? local.l_assie_tag_sandbox : local.l_assie_tag
