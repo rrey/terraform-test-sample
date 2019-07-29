@@ -1,5 +1,5 @@
 ### Variable module_create
-variable "module_exist" {
+variable "module_create" {
     description = "Resource create"
     type        = bool
     default     = true
