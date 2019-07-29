@@ -1,3 +1,10 @@
+### Variable module_create
+variable "module_create" {
+    description = "Resource create"
+    type        = bool
+    default     = true
+}
+
 variable "assie_branch" {
     description = "Name of branch - from a variable or the environment variable TF_VAR_assie_branch"
     type        = string

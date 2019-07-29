@@ -8,6 +8,11 @@ output "outputRgLocation" {
   value       = "${azurerm_resource_group.assie_resource_group[0].location}"
 }
 
+output "outputRgTags" {
+  description = "all tags"
+  value       = local.l_assie_tag
+}
+
 output "tagApplicationName" {
   description = "Application name as Assie naming convention"
   value       = local.l_tag_application_name
