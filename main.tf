@@ -53,7 +53,7 @@ locals {
   ### Calculate tag Application Name
   l_tag_application_name = "${local.l_application_name}"
 
-  ### Calulate tag Application Life Time
+  ### Calculate tag Application Life Time
   l_application_duration     = "${var.assie_applicationDuration}h"
   l_tag_application_lifetime = timeadd(timestamp(), local.l_application_duration)
 
