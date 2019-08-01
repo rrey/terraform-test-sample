@@ -1,7 +1,6 @@
 ### Variable module_create
 variable "module_create" {
     description = "Resource create"
-    type        = bool
     default     = true
 }
 
