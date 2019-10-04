@@ -30,7 +30,14 @@ variable "assie_applicationName" {
 
 variable "assie_applicationCode" { 
     description = " Code of application - from a variable or the environment variable TF_VAR_assie_applicationCode"
-    default = "null"
+    type        = string
+    default     = "null"
+}
+
+variable "assie_districtCode" {
+    descritpion = "Name of the district to add in the naming convention for Resource Groupe"
+    type        = string
+    default     = "null"
 }
 
 variable "assie_securityLevel" {
@@ -49,4 +56,10 @@ variable "assie_applicationDuration" {
     description = "Application Life Time in Hours"
     type        = string
     default     = "8760"
+}
+
+variable "assie_districtCode" {
+    descritpion = "Name of the district to add in the naming convention for Resource Groupe"
+    type        = string
+    default     = "null"
 }
