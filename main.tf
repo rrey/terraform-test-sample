@@ -92,7 +92,7 @@ locals {
   l_district_code  = "${var.assie_districtCode}" == "null" ? "" : lower("${var.assie_districtCode}")
   l_rgname_p       = "${local.l_cloud_code}${local.l_resource_code}${local.l_environment_code}${local.l_district_code}-${local.l_application_name}-${local.l_resource_index}"
   l_rgname_r       = "${local.l_cloud_code}${local.l_resource_code}r${local.l_district_code}-${local.l_application_name}-${local.l_resource_index}"
-  l_rgname         = local.l_tags["Environment"] == "p" ? "${local.l_rgname_p}" : "${local.l_rgname_r}"
+  l_rgname         = local.l_environment_code == "p" ? "${local.l_rgname_p}" : "${local.l_rgname_r}"
 }
 
 ### Generate Resource Group
