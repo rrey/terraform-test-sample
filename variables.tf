@@ -35,7 +35,7 @@ variable "assie_applicationCode" {
 }
 
 variable "assie_districtCode" {
-    descritpion = "Name of the district to add in the naming convention for Resource Groupe"
+    description = "Name of the district to add in the naming convention for Resource Groupe"
     type        = string
     default     = "null"
 }
@@ -56,10 +56,4 @@ variable "assie_applicationDuration" {
     description = "Application Life Time in Hours"
     type        = string
     default     = "8760"
-}
-
-variable "assie_districtCode" {
-    descritpion = "Name of the district to add in the naming convention for Resource Groupe"
-    type        = string
-    default     = "null"
 }
