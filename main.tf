@@ -15,11 +15,11 @@ locals {
   
   ### map for Total Branch
   l_branch_map = {
-    ms = "MS" 
+    ms = "MS"
     ep = "EP"
-    rc = "RC" 
+    rc = "RC"
     gp = "GP"
-    hd = "HD" 
+    hd = "HD"
     ts = "TS"
   }
   
@@ -53,7 +53,7 @@ locals {
   ### Calculate tag Application Name
   l_tag_application_name = "${local.l_application_name}"
 
-  ### Calulate tag Application Life Time
+  ### Calculate tag Application Life Time
   l_application_duration     = "${var.assie_applicationDuration}h"
   l_tag_application_lifetime = timeadd(timestamp(), local.l_application_duration)
 
@@ -89,7 +89,10 @@ locals {
   l_cloud_code     = "az"
   l_resource_code  = "rg"
   l_resource_index = "01"
-  l_rgname = "${local.l_cloud_code}${local.l_resource_code}${local.l_environment_code}-${local.l_application_name}-${local.l_resource_index}"
+  l_district_code  = "${var.assie_districtCode}" == "null" ? "" : lower("${var.assie_districtCode}")
+  l_rgname_p       = "${local.l_cloud_code}${local.l_resource_code}${local.l_environment_code}${local.l_district_code}-${local.l_application_name}-${local.l_resource_index}"
+  l_rgname_r       = "${local.l_cloud_code}${local.l_resource_code}r${local.l_district_code}-${local.l_application_name}-${local.l_resource_index}"
+  l_rgname         = local.l_environment_code == "p" ? "${local.l_rgname_p}" : "${local.l_rgname_r}"
 }
 
 ### Generate Resource Group
