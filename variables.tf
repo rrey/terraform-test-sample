@@ -4,6 +4,12 @@ variable "module_create" {
     default     = true
 }
 
+variable "assie_rgIndex" {
+    description = "Index of the resource group"
+    type        = string
+    default     = "01"
+}
+
 variable "assie_branch" {
     description = "Name of branch - from a variable or the environment variable TF_VAR_assie_branch"
     type        = string
