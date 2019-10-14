@@ -88,7 +88,7 @@ locals {
   ### Calculate Resource Group Name base on HLD
   l_cloud_code     = "az"
   l_resource_code  = "rg"
-  l_resource_index = "01"
+  l_resource_index = "${var.assie_rgIndex}"
   l_district_code  = "${var.assie_districtCode}" == "null" ? "" : lower("${var.assie_districtCode}")
   l_rgname_p       = "${local.l_cloud_code}${local.l_resource_code}${local.l_environment_code}${local.l_district_code}-${local.l_application_name}-${local.l_resource_index}"
   l_rgname_r       = "${local.l_cloud_code}${local.l_resource_code}r${local.l_district_code}-${local.l_application_name}-${local.l_resource_index}"
