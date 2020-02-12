@@ -1,3 +1,8 @@
+output "outputRgId" {
+  description = "The resource group name"
+  value       = "${azurerm_resource_group.assie_resource_group[0].id}"
+}
+
 output "outputRgName" {
   description = "The resource group name"
   value       = "${azurerm_resource_group.assie_resource_group[0].name}"
