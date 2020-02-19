@@ -1,9 +1,8 @@
-#### module Azurerm Resource Group
+#### Module Azurerm Resource Group
 #### DLR - 20200130 - v0.2
 
 locals {
-
-  ### map for environment Name
+  ### Map for environment Name
   l_environment_map = {
     p = "p"
     q = "q"
