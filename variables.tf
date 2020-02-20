@@ -1,65 +1,65 @@
-### Variable module_create
+### Variable module
 variable "module_create" {
-    description = "Resource create"
-    default     = true
+  description = "Resource create"
+  default     = true
 }
 
 variable "assie_rgIndex" {
-    description = "Index of the resource group"
-    type        = string
-    default     = "01"
+  description = "Index of the resource group"
+  type        = string
+  default     = "01"
 }
 
 variable "assie_branch" {
-    description = "Name of branch - from a variable or the environment variable TF_VAR_assie_branch"
-    type        = string
-    default     = ""
+  description = "Name of branch - from a variable or the environment variable TF_VAR_assie_branch"
+  type        = string
+  default     = ""
 }
 
 variable "assie_environment" {
-    description = "value pass from a variable or the environment variable TF_VAR_assie_environment"
-    type        = string
-    default     = ""
+  description = "Value pass from a variable or the environment variable TF_VAR_assie_environment"
+  type        = string
+  default     = ""
 }
 
 variable "assie_location" {
-    description = "Applicable to Azure MVP - ASSIE Project will follow the following rules - Azure Location is West Europe"
-    type        = string
-    default     = "westeurope"
+  description = "Applicable to Azure MVP - ASSIE Project will follow the following rules - Azure Location is West Europe"
+  type        = string
+  default     = "westeurope"
 }
 
 variable "assie_applicationName" {
-    description = "Name of application - from a variable or the environment variable TF_VAR_assie_applicationName"
-    type        = string
-    default     = "null"
+  description = "Name of application - from a variable or the environment variable TF_VAR_assie_applicationName"
+  type        = string
+  default     = "null"
 }
 
-variable "assie_applicationCode" { 
-    description = " Code of application - from a variable or the environment variable TF_VAR_assie_applicationCode"
-    type        = string
-    default     = "null"
+variable "assie_applicationCode" {
+  description = "Code of application - from a variable or the environment variable TF_VAR_assie_applicationCode"
+  type        = string
+  default     = "null"
 }
 
 variable "assie_districtCode" {
-    description = "Name of the district to add in the naming convention for Resource Groupe"
-    type        = string
-    default     = "null"
+  description = "Name of the district to add in the naming convention for Resource Groupe"
+  type        = string
+  default     = "null"
 }
 
 variable "assie_securityLevel" {
-    description = "value pass from a variable or the environment variable TF_VAR_assie_securityLevel"
-    type        = string
-    default     = "standard"
+  description = "Value pass from a variable or the environment variable TF_VAR_assie_securityLevel"
+  type        = string
+  default     = "standard"
 }
 
 variable "assie_exploitation" {
-    description = "Name of outsourcer - from a variable or the environment variable TF_VAR_assie_exploitation"
-    type        = string
-    default     = "BOOST"
+  description = "Name of outsourcer - from a variable or the environment variable TF_VAR_assie_exploitation"
+  type        = string
+  default     = "BOOST"
 }
 
 variable "assie_applicationDuration" {
-    description = "Application Life Time in Hours"
-    type        = string
-    default     = "8760"
+  description = "Application Life Time in Hours"
+  type        = string
+  default     = "8760"
 }

@@ -1,5 +1,5 @@
 #### Module Azurerm Resource Group
-#### DLR - 20200130 - v0.2
+#### v0.3 INOX INFRA
 
 locals {
   ### Map for environment Name
@@ -11,8 +11,8 @@ locals {
     i = "i"
     s = "s"
   }
-  
-  ### map for Total Branch
+
+  ### Map for Total Branch
   l_branch_map = {
     ms = "MS"
     ep = "EP"
@@ -21,49 +21,47 @@ locals {
     hd = "HD"
     ts = "TS"
   }
-  
-  ### map for Total SecurityLevel
+
+  ### Map for Total SecurityLevel
   l_security_level_map = {
     standard    = "Standard"
     high        = "High"
     conditional = "Conditional"
   }
 
-  ### variable Environment
-  # Calculate environment Code
-  l_environment_code = lower(substr("${var.assie_environment}",0,1))
-  # Test Environment Code
+  ### Calculate environment Code
+  l_environment_code = lower(substr("${var.assie_environment}", 0, 1))
+  
+  ### Test Environment Code
   l_tag_environment = lookup(local.l_environment_map, local.l_environment_code, "s")
 
-  ### variable application Name
-  l_application_name = "${var.assie_applicationName}" == "null" ? lower(substr(var.assie_applicationCode,0,4)) : replace(trimspace(lower("${var.assie_applicationName}"))," ","")
+  ### Verify if application Name exist et format it else we use application code
+  l_application_name = "${var.assie_applicationName}" == "null" ? lower(substr(var.assie_applicationCode, 0, 4)) : replace(trimspace(lower("${var.assie_applicationName}")), " ", "")
 
-  ### variable application Code
-  l_tag_application_code = "${var.assie_applicationCode}" == "null" ? lower(substr(local.l_application_name,0,4)) : lower(substr(var.assie_applicationCode,0,4))
+  ### Verify if application Code exist et format it else we use application name
+  l_tag_application_code = "${var.assie_applicationCode}" == "null" ? lower(substr(local.l_application_name, 0, 4)) : lower(substr(var.assie_applicationCode, 0, 4))
 
-  ### Calculate tag Exploitation
+  ### Calculate Exploitation tag
   l_exploitation = lower("${var.assie_exploitation}")
 
-  ### Calculate tag Branch code
-  #l_tag_branch = local.l_branch_map[lower(substr("${var.assie_branch}",0,2))]
-  #l_tag_branch = upper(replace(trimspace("${var.assie_branch}"," ","")))
-  l_tag_branch = replace(trimspace(upper("${var.assie_branch}"))," ","")
-  
-  ### Calculate tag Application Name
+  ### Calculate Branch code tag 
+  l_tag_branch = replace(trimspace(upper("${var.assie_branch}")), " ", "")
+
+  ### Calculate Application Name tag 
   l_tag_application_name = "${local.l_application_name}"
 
-  ### Calculate tag Application Life Time
+  ### Calculate Application Life Time tag 
   l_application_duration     = "${var.assie_applicationDuration}h"
   l_tag_application_lifetime = timeadd(timestamp(), local.l_application_duration)
 
-  ### Calculate tag Exploitation from TF_VAR_assie_exploitation
+  ### Calculate Exploitation tag from TF_VAR_assie_exploitation
   l_tag_exploitation = upper("${var.assie_exploitation}")
 
-  ### Calculate tag Security Level
+  ### Calculate Security Level tag
   l_securitylevelvar   = lower("${var.assie_securityLevel}")
   l_tag_security_level = local.l_security_level_map[local.l_securitylevelvar]
 
-  ### tags for resource groupe base on HLD on SandBox
+  ### Resource group tags based on SandBox HLD 
   l_assie_tag_sandbox = {
     ApplicationName     = local.l_tag_application_name
     ApplicationCode     = local.l_tag_application_code
@@ -74,14 +72,14 @@ locals {
     SecurityLevel       = local.l_tag_security_level
   }
 
-  ### tags for resource groupe base on HLD
+  ### Resource group based on HLD
   l_assie_tag = {
-    ApplicationName     = local.l_tag_application_name
-    ApplicationCode     = local.l_tag_application_code
-    Branch              = local.l_tag_branch
-    Environment         = local.l_tag_environment
-    Exploitation        = local.l_tag_exploitation
-    SecurityLevel       = local.l_tag_security_level
+    ApplicationName = local.l_tag_application_name
+    ApplicationCode = local.l_tag_application_code
+    Branch          = local.l_tag_branch
+    Environment     = local.l_tag_environment
+    Exploitation    = local.l_tag_exploitation
+    SecurityLevel   = local.l_tag_security_level
   }
 
   ### Calculate Resource Group Name base on HLD
@@ -96,7 +94,7 @@ locals {
 
 ### Generate Resource Group
 resource "azurerm_resource_group" "assie_resource_group" {
-  count    = tonumber("${local.l_tag_environment == false ? 0 : 1 }") * tonumber("${var.module_create == true ? 1 : 0}")
+  count    = tonumber("${local.l_tag_environment == false ? 0 : 1}") * tonumber("${var.module_create == true ? 1 : 0}")
   location = "${var.assie_location}"
   name     = local.l_rgname
   tags     = local.l_environment_code == "s" ? local.l_assie_tag_sandbox : local.l_assie_tag
