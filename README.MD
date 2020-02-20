@@ -9,7 +9,7 @@ Naming Syntax use the following rules :
 ## Resource Group Construction
 Type | Char(s) length | Allowed values | Description
 --- | --- | --- | --- 
-`Cloud_Prefix` | *2 char* | [ az ] | Allowed cloud prefix / fixed with l_cloud_code in in main.tf 
+`Cloud_Prefix` | *2 char* | [ az ] | Allowed cloud prefix / fixed with l_cloud_code in main.tf 
 `Type` | *2 char* | [ rg ] | Resource group = rg
 `Environment` | *1 char* | [ p / q / d / r / i / s ] | (***p***)rod, (***q***)ual, (***d***)ev, p(***r***)eprod, (***i***)ntegration, (***s***)andbox 
 `Name` | *x char & x int* | [ <App_name> ] | Application name without space
