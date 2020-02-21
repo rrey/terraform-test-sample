@@ -9,7 +9,7 @@ Naming Syntax use the following rules :
 ## Resource Group Construction
 Type | Char(s) length | Allowed values | Description
 --- | --- | --- | --- 
-`Cloud_Prefix` | *2 char* | [ az ] | Allowed cloud prefix / fixed with l_cloud_code in in main.tf 
+`Cloud_Prefix` | *2 char* | [ az ] | Allowed cloud prefix / fixed with l_cloud_code in main.tf 
 `Type` | *2 char* | [ rg ] | Resource group = rg
 `Environment` | *1 char* | [ p / q / d / r / i / s ] | (***p***)rod, (***q***)ual, (***d***)ev, p(***r***)eprod, (***i***)ntegration, (***s***)andbox 
 `Name` | *x char & x int* | [ <App_name> ] | Application name without space
@@ -51,7 +51,8 @@ module "create_rg" {
 ## Mandatory Inputs
 Input name   | Input type| Description 
 ----------- | ----------- | -----------
- `assie_applicationName` / or / `assie_applicationCode` | *string* | Application name from environment variable / or / *Application Code from environment variable*       
+ `assie_applicationName` | *string* | ApplicationName from environment variable. */!\ Warning : If applicationName value is empty it will be replace by applicationCode value*      
+ `assie_applicationCode` | *string* | Application code from environment variable. */!\ Warning : If applicationCode value is empty it will be replace by applicationName value*      
 `assie_environment`  | *string* |  1 char - value pass from environment variable 
 `assie_branch`  | *string* | Branch name - from environment variable      
 

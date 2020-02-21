@@ -35,10 +35,10 @@ locals {
   ### Test Environment Code
   l_tag_environment = lookup(local.l_environment_map, local.l_environment_code, "s")
 
-  ### Verify if application Name exist et format it else we use application code
+  ### If applicationName is empty => Add applicationCode value into ApplicationName
   l_application_name = "${var.assie_applicationName}" == "null" ? lower(substr(var.assie_applicationCode, 0, 4)) : replace(trimspace(lower("${var.assie_applicationName}")), " ", "")
 
-  ### Verify if application Code exist et format it else we use application name
+  ### If applicationCode is empty => Add applicationName value into ApplicationCode
   l_tag_application_code = "${var.assie_applicationCode}" == "null" ? lower(substr(local.l_application_name, 0, 4)) : lower(substr(var.assie_applicationCode, 0, 4))
 
   ### Calculate Exploitation tag
