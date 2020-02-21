@@ -49,6 +49,9 @@ module "create_rg" {
 }
 ```
 ## Mandatory Inputs
+
+Regarding `assie_applicationCode` and `assie_applicationName`, you must choose at least one of them to correctly execute the module. You can also set each of them with different values. 
+
 Input name   | Input type| Description 
 ----------- | ----------- | -----------
  `assie_applicationName` | *string* | ApplicationName from environment variable. */!\ Warning : If applicationName value is empty it will be replace by applicationCode value*      
