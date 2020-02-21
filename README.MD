@@ -1,6 +1,11 @@
 # Create a Resource Group in Azure
 ---------------------  
 
+## Resource Type (Terraform)
+Input name   | Description 
+----------- | -----------
+`azurerm_resource_group ` | to create a resource group azure  
+
 # Resource Group namming convention
 Naming Syntax use the following rules :
 - [x] Lower characters
