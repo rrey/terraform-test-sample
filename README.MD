@@ -1,8 +1,8 @@
 # Create a Resource Group in Azure
 ---------------------  
 
-## Resource Type (Terraform)
-Input name   | Description 
+## Resource Type used (Terraform)
+Resource type   | Description 
 ----------- | -----------
 `azurerm_resource_group ` | to create a resource group azure  
 
