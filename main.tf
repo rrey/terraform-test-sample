@@ -31,7 +31,7 @@ locals {
 
   ### Calculate environment Code
   l_environment_code = lower(substr("${var.assie_environment}", 0, 1))
-  
+
   ### Test Environment Code
   l_tag_environment = lookup(local.l_environment_map, local.l_environment_code, "s")
 
