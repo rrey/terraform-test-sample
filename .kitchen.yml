@@ -1,0 +1,17 @@
+driver:
+  name: terraform
+  command_timeout: 1800
+
+provisioner:
+  name: terraform
+
+platforms:
+  - name: terraform
+
+suites:
+  - name: basic-example
+    driver:
+      root_module_directory: examples/basic-example/
+    verifier:
+      name: shell
+      command: CHEF_LICENSE=accept-no-persist inspec exec tests/integration/basic-example-inspec/ -t azure://
