@@ -1,0 +1,2 @@
+docker login conftest.azurecr.io
+conftest push conftest.azurecr.io/conftest/opa-policy:1.0

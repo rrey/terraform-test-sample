@@ -64,7 +64,7 @@ locals {
   ### Resource group tags based on SandBox HLD 
   l_assie_tag_sandbox = {
     ApplicationName     = local.l_tag_application_name
-    ApplicationCode     = local.l_tag_application_code
+    # ApplicationCode     = local.l_tag_application_code
     Branch              = local.l_tag_branch
     Environment         = local.l_tag_environment
     ApplicationLifetime = local.l_tag_application_lifetime
@@ -75,7 +75,7 @@ locals {
   ### Resource group based on HLD
   l_assie_tag = {
     ApplicationName = local.l_tag_application_name
-    ApplicationCode = local.l_tag_application_code
+    # ApplicationCode = local.l_tag_application_code
     Branch          = local.l_tag_branch
     Environment     = local.l_tag_environment
     Exploitation    = local.l_tag_exploitation
