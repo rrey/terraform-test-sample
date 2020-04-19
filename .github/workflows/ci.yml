@@ -1,25 +1,48 @@
 name: CI
 on:
-- pull_request
+  push:
+    branches:
+      - master
+  pull_request:
 
 jobs:
+  conformity:
+    runs-on: ubuntu-latest
+    container:
+        image: rrey/terraform-runner:0.2.0
+    steps:
+
+      - name: Check out code
+        uses: actions/checkout@v1
+
+      - name: Generate plan
+        run: |
+            cd examples/basic-example/
+            terraform init
+            terraform plan -out $GITHUB_WORKSPACE/basic-example.out
+            terraform show -json $GITHUB_WORKSPACE/basic-example.out > $GITHUB_WORKSPACE/basic-example.json
+        env:
+            GITHUB_WORKSPACE: ${{ env.GITHUB_WORKSPACE }}
+            ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
+            ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
+            ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
+            ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
+
+      - name: Run conformity tests
+        run: |
+          conftest test basic-example.json
+
   integration:
     runs-on: ubuntu-latest
-    #strategy:
-    #  matrix:
-    #    grafana_version: ["6.4.5", "6.5.3", "6.6.2"]
-    #    python_version: ["3.6"]
     container:
-        image: rrey/terraform-runner:0.1
+        image: rrey/terraform-runner:0.2.0
     steps:
 
       - name: Check out code
         uses: actions/checkout@v1
 
       - name: Install ruby deps
-        run: |
-            apk add ruby-webrick
-            bundle install
+        run: bundle install
 
       - name: Run integration tests
         run: kitchen test
