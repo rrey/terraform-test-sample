@@ -1,0 +1,2 @@
+azure-mgmt-resource==9.0.0
+pytest==5.4.1

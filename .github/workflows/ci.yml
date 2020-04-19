@@ -9,7 +9,7 @@ jobs:
   conformity:
     runs-on: ubuntu-latest
     container:
-        image: rrey/terraform-runner:0.2.0
+        image: rrey/terraform-runner:0.3.1
     steps:
 
       - name: Check out code
@@ -35,7 +35,7 @@ jobs:
   integration:
     runs-on: ubuntu-latest
     container:
-        image: rrey/terraform-runner:0.2.0
+        image: rrey/terraform-runner:0.3.1
     steps:
 
       - name: Check out code
@@ -44,8 +44,12 @@ jobs:
       - name: Install ruby deps
         run: bundle install
 
+      - name: Install Python and deps
+        run: apk add python3 py3-pip py3-cryptography py3-cffi ruby-webrick ruby-etc ruby-io-console  && pip3 install -r requirements.txt
+
+
       - name: Run integration tests
-        run: kitchen test
+        run: bundle exec kitchen test
         env:
             AZURE_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
             AZURE_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}

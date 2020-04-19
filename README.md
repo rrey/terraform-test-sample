@@ -1,27 +1,10 @@
-## Requirements
+## Terraform test samples
 
-| Name | Version |
-|------|---------|
-| azurerm | ~> 2.6 |
+This repository contains a dummy Terraform module with a Github Actions CI implementing:
 
-## Providers
+* Integration tests using `kitchen-terraform` for test orchestration
+    * A sample verification using `inspec`
+    * A sample verification using `pytest`
+* Conformity test using `conftest` and `opa` (Open Policy Agent)
 
-| Name | Version |
-|------|---------|
-| azurerm | ~> 2.6 |
-
-## Inputs
-
-| Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:--------:|
-| location | The resource group location | `string` | `"westeurope"` | no |
-| rg\_name | The resource group name | `string` | n/a | yes |
-| rg\_owner | The resource group owner | `string` | n/a | yes |
-| rg\_tags | The resource group tags | `map` | `{}` | no |
-
-## Outputs
-
-| Name | Description |
-|------|-------------|
-| rg | The resource group |
-
+Tests are using the module usage example locates in `examples/`.
