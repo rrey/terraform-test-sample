@@ -9,9 +9,16 @@ platforms:
   - name: terraform
 
 suites:
-  - name: basic-example
+  - name: basic-example-inspec
     driver:
       root_module_directory: examples/basic-example/
     verifier:
       name: shell
       command: CHEF_LICENSE=accept-no-persist inspec exec tests/integration/basic-example-inspec/ -t azure://
+
+  - name: basic-example-pytest
+    driver:
+      root_module_directory: examples/basic-example/
+    verifier:
+      name: shell
+      command: pytest tests/integration/basic-example-pytest/basic-example.py
