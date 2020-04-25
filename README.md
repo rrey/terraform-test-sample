@@ -26,3 +26,35 @@ Can you safely upgrade these 2 components when a major version is released ? Spo
 The providers upgrade can introduce new parameter names that are first displayed as deprecation warning before failing in other release.
 If you don't follow the releases and update your modules accordingly, you could have several modules that become unusable after a few month.
 Integration tests can help you detecting the failure and be sure that everything still works as expected after you made a fix.
+
+## Module documentation
+
+<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+## Requirements
+
+| Name | Version |
+|------|---------|
+| azurerm | ~> 2.6 |
+
+## Providers
+
+| Name | Version |
+|------|---------|
+| azurerm | ~> 2.6 |
+
+## Inputs
+
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| location | The resource group location | `string` | `"westeurope"` | no |
+| rg\_name | The resource group name | `string` | n/a | yes |
+| rg\_owner | The resource group owner | `string` | n/a | yes |
+| rg\_tags | The resource group tags | `map` | `{}` | no |
+
+## Outputs
+
+| Name | Description |
+|------|-------------|
+| rg | The resource group |
+
+<!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
