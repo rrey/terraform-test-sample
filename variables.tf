@@ -18,5 +18,5 @@ variable "rg_owner" {
 variable "rg_tags" {
   description = "The resource group tags"
   type        = map
-  default = {}
+  default     = {}
 }
